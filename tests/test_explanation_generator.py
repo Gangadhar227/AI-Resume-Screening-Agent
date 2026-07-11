@@ -87,5 +87,32 @@ def test_missing_experience_and_education_are_honest() -> None:
 
     explanation = generate_explanation(candidate)
 
-    assert "experience information was not available" in explanation.lower()
+    assert "experience could not be identified" in explanation.lower()
     assert "education requirement could not be confirmed" in explanation.lower()
+
+
+def test_explanation_does_not_repeat_missing_skills() -> None:
+    candidate = CandidateResult(
+        candidate_name="Mina",
+        original_filename="mina.txt",
+        email="mina@example.com",
+        final_score=42.0,
+        semantic_relevance_score=40.0,
+        skill_match_score=25.0,
+        experience_match_score=50.0,
+        education_match_score=50.0,
+        matched_skills=[],
+        missing_skills=["Docker", "AWS"],
+        extracted_skills=[],
+        extracted_experience=None,
+        required_experience=3.0,
+        extracted_education=[],
+        required_education=["B.Tech"],
+        recommendation="Low Match",
+        scoring_notes=["Candidate experience is unknown."],
+    )
+
+    explanation = generate_explanation(candidate)
+
+    assert explanation.lower().count("missing skills") == 1
+    assert "review the complete resume before making any decision" in explanation.lower()

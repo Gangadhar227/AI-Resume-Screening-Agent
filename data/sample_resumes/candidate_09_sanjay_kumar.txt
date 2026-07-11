@@ -1,0 +1,21 @@
+Sanjay Kumar
+sanjay.kumar@example.com
+
+Professional Summary
+Machine-learning engineer focused on end-to-end model development, including preparation, experimentation, and evaluation. Skilled in Python, scikit-learn, XGBoost, SQL, and Git.
+
+Education
+Bachelor of Technology in Computer Science from Example University
+
+Experience
+ML Engineer Intern, DataCraft Labs (2024)
+- Built and evaluated supervised models with scikit-learn and XGBoost.
+- Performed feature engineering and dataset validation for predictive tasks.
+- Worked with SQL-based data extraction for model training.
+
+Projects
+- Credit Risk Model: trained and evaluated gradient-boosted models for classification.
+- Customer Segmentation: built pipelines for feature preparation and clustering.
+
+Technical Skills
+Python, Machine Learning, Scikit-learn, XGBoost, SQL, Git

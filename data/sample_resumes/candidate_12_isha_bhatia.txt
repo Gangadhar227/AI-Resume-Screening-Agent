@@ -1,0 +1,21 @@
+Isha Bhatia
+isha.bhatia@example.com
+
+Professional Summary
+Junior data scientist with experience in Python, machine learning, NLP, and analytics. Strong academic foundation in statistics, model evaluation, and experimentation.
+
+Education
+Master of Science in Data Science from Example University
+
+Experience
+Data Science Intern, Futurix Analytics (2023-2024)
+- Applied machine learning techniques for classification and clustering tasks.
+- Built natural-language-processing experiments with Python and scikit-learn.
+- Worked with SQL and pandas for feature engineering and evaluation.
+
+Projects
+- Topic Modeling Study: explored NLP workflows for document clustering.
+- Customer Segmentation: built evaluation experiments for feature-based clustering.
+
+Technical Skills
+Python, Machine Learning, Natural Language Processing, Scikit-learn, Pandas, SQL, Git

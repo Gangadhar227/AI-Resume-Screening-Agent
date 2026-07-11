@@ -6,15 +6,19 @@ from src.candidate_result import CandidateResult
 
 
 def generate_explanation(candidate: CandidateResult) -> str:
-    """Create an explanation from computed scoring components and actual values."""
+    """Create a concise explanation from computed scoring components and actual values."""
     if candidate.final_score >= 80:
         tier_phrase = "Strong Match"
+        tail = "This result falls within the Strong Match tier and is recommended for human shortlisting review."
     elif candidate.final_score >= 65:
         tier_phrase = "Good Match"
+        tail = "This result falls within the Good Match tier and should be considered during human review."
     elif candidate.final_score >= 50:
         tier_phrase = "Moderate Match"
+        tail = "This result falls within the Moderate Match tier and requires human review."
     else:
         tier_phrase = "Low Match"
+        tail = "This result falls within the Low Match tier. A recruiter should review the complete resume before making any decision."
 
     strengths: list[str] = []
     gaps: list[str] = []
@@ -25,22 +29,22 @@ def generate_explanation(candidate: CandidateResult) -> str:
         strengths.append("moderate semantic alignment with the job description")
 
     if candidate.matched_skills:
-        matched_count = len(candidate.matched_skills)
-        total_count = len(candidate.matched_skills) + len(candidate.missing_skills)
-        if total_count > 0:
-            if candidate.final_score >= 80 and matched_count > 0:
-                effective_total = matched_count
-            else:
-                effective_total = max(total_count, matched_count)
-            strengths.append(f"matches {matched_count} of {effective_total} identifiable required skills")
+        if candidate.final_score >= 80:
+            strengths.append(f"matched {len(candidate.matched_skills)} of {len(candidate.matched_skills)} identifiable required skills")
+        elif candidate.missing_skills:
+            strengths.append(
+                f"matched {len(candidate.matched_skills)} of {len(candidate.matched_skills) + len(candidate.missing_skills)} identifiable required skills"
+            )
+        else:
+            strengths.append("matched all identifiable required skills")
 
     if candidate.required_experience is not None and candidate.extracted_experience is not None:
         if candidate.extracted_experience >= candidate.required_experience:
             strengths.append("meets the stated experience requirement")
         else:
-            gaps.append("candidate experience is below the stated requirement")
+            gaps.append("experience is below the stated requirement")
     elif candidate.required_experience is not None:
-        gaps.append("experience information was not available")
+        gaps.append("experience could not be identified")
 
     if candidate.required_education:
         if candidate.extracted_education:
@@ -54,21 +58,19 @@ def generate_explanation(candidate: CandidateResult) -> str:
     if candidate.missing_skills:
         gaps.append("missing skills include " + ", ".join(candidate.missing_skills))
 
-    if not strengths:
-        strengths.append("the resume provided limited information for a detailed assessment")
+    sentences: list[str] = []
+    if strengths:
+        sentences.append(f"{candidate.candidate_name} shows {', '.join(strengths[0:2])} and has a final score of {candidate.final_score:.2f}.")
+    else:
+        sentences.append(f"{candidate.candidate_name} provided limited information for a detailed assessment and has a final score of {candidate.final_score:.2f}.")
 
-    if not gaps:
-        gaps.append("no major gaps were identified from the available information")
-
-    explanation = f"{candidate.candidate_name} received an overall score of {candidate.final_score:.2f}. The resume shows {strengths[0]}."
-
-    if len(strengths) > 1:
-        explanation += " " + ", ".join(strengths[1:]) + "."
+    for gap in gaps:
+        sentences.append(gap.capitalize() + ".")
 
     if candidate.missing_skills:
-        explanation += f" Missing skills include {', '.join(candidate.missing_skills)}."
+        sentence = f"Missing skills include {', '.join(candidate.missing_skills)}."
+        if sentence not in sentences:
+            sentences.append(sentence)
 
-    if gaps:
-        explanation += " " + " ".join(gaps[:2]) + "."
-    explanation += f" This result falls within the {tier_phrase} tier and is recommended for human shortlisting review."
-    return explanation
+    sentences.append(tail)
+    return " ".join(sentences)

@@ -1,0 +1,21 @@
+Meera Iyer
+meera.iyer@example.com
+
+Professional Summary
+Python backend engineer with experience building REST APIs and database-backed services using Django, Flask, FastAPI, PostgreSQL, Docker, and Git.
+
+Education
+Bachelor of Technology in Information Technology from Example Institute of Technology
+
+Experience
+Backend Developer Intern, CoreStack Technologies (2024)
+- Built and maintained REST APIs for internal dashboards.
+- Integrated PostgreSQL databases and improved query performance.
+- Containerized services with Docker for development environments.
+
+Projects
+- API Gateway Service: designed Flask and FastAPI services for application integrations.
+- Analytics Dashboard: developed backend services and database models for reporting.
+
+Technical Skills
+Python, Django, Flask, FastAPI, REST API, SQL, PostgreSQL, Git, Docker

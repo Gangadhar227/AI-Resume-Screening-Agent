@@ -1,0 +1,39 @@
+Junior AI/ML Engineer
+
+We are seeking a Junior AI/ML Engineer to support the development of practical machine-learning and AI solutions. The ideal candidate has a strong foundation in Python, machine learning, NLP, and data preparation, and is eager to build reliable prototypes and collaborate with engineering and product teams.
+
+Experience: 0–2 years
+Education: Bachelor's degree in Computer Science, Engineering, Information Technology, Artificial Intelligence, Data Science, or a related technical field
+
+Required skills:
+- Python
+- Machine Learning
+- Natural Language Processing
+- Scikit-learn
+- Pandas
+- NumPy
+- SQL
+- Git
+- REST API
+
+Preferred skills:
+- Deep Learning
+- TensorFlow or PyTorch
+- Computer Vision
+- OpenCV
+- Large Language Models
+- Retrieval-Augmented Generation
+- LangChain
+- Streamlit
+- Docker
+- AWS, Azure, or GCP
+
+Responsibilities:
+- Prepare and preprocess datasets.
+- Build and evaluate machine-learning models.
+- Develop AI prototypes.
+- Work with NLP or computer-vision workflows.
+- Integrate models into applications and APIs.
+- Perform testing and validation.
+- Document experiments and technical decisions.
+- Collaborate with engineering and product teams.

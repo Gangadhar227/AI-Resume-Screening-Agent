@@ -1,0 +1,21 @@
+Ananya Rao
+ananya.rao@example.com
+
+Professional Summary
+AI/ML engineer with hands-on experience building NLP and recommendation systems using Python, scikit-learn, pandas, NumPy, SQL, and Git. Interested in developing production-ready prototypes and integrating models into APIs.
+
+Education
+Bachelor of Technology in Artificial Intelligence from Example Institute of Technology
+
+Experience
+Machine Learning Intern, Example Labs (2024)
+- Built text-classification pipelines using scikit-learn and pandas.
+- Developed NLP prototypes with Python and simple retrieval-augmented generation experiments.
+- Worked with REST APIs and deployed Streamlit prototypes for internal demos.
+
+Projects
+- Document Q&A Assistant: built a retrieval-augmented generation pipeline using LangChain and vector retrieval.
+- Customer Support NLP Model: trained and evaluated text classifiers with Python and scikit-learn.
+
+Technical Skills
+Python, Machine Learning, Natural Language Processing, Scikit-learn, Pandas, NumPy, SQL, Git, REST API, LangChain, Streamlit, Retrieval-Augmented Generation

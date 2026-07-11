@@ -65,6 +65,19 @@ def test_experience_extraction_decimal() -> None:
     assert info["experience_years"] == 2.5
 
 
+def test_experience_extraction_from_internship_duration() -> None:
+    text = "Completed a 6-month internship in NLP and Python."
+    info = extract_candidate_information(text, filename="candidate")
+    assert info["experience_years"] == 0.5
+    assert info["experience_note"] == "Approximate internship duration used as relevant experience."
+
+
+def test_education_extraction_normalizes_equivalent_qualifications() -> None:
+    text = "Bachelor's degree, B.Tech, Master of Technology, and M.Tech"
+    info = extract_candidate_information(text, filename="candidate")
+    assert info["education"] == ["Bachelor", "Master"]
+
+
 def test_missing_experience_returns_none() -> None:
     info = extract_candidate_information("No experience statement here", filename="candidate")
     assert info["experience_years"] is None

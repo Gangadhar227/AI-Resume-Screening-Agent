@@ -1,0 +1,21 @@
+Priya Das
+priya.das@example.com
+
+Professional Summary
+Recent graduate in engineering with a practical understanding of machine-learning workflows and deployment using Python, scikit-learn, pandas, AWS, and Docker.
+
+Education
+Bachelor of Technology in Electrical Engineering from Example Institute of Technology
+
+Experience
+ML Operations Intern, CloudWorks Labs (2024)
+- Prepared datasets and trained simple classification models with scikit-learn.
+- Built lightweight deployment workflows with Docker and AWS.
+- Supported experiment tracking and documentation for ML services.
+
+Projects
+- Deployment Automation: packaged ML services with Docker and AWS.
+- Predictive Modeling: trained baseline models for tabular data using Python and scikit-learn.
+
+Technical Skills
+Python, Machine Learning, Scikit-learn, Pandas, Docker, AWS, Git

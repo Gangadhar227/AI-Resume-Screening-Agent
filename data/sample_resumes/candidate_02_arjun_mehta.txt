@@ -1,0 +1,21 @@
+Arjun Mehta
+arjun.mehta@example.com
+
+Professional Summary
+Computer-vision engineer focused on object detection, model deployment, and practical vision workflows. Skilled in Python, PyTorch, OpenCV, YOLO, Flask, and Git.
+
+Education
+Bachelor of Engineering in Computer Science from Example University
+
+Experience
+Computer Vision Intern, Vision Forge (2023-2024)
+- Built and evaluated YOLO-based detection models for industrial safety monitoring.
+- Used OpenCV and PyTorch to preprocess imagery and improve inference quality.
+- Integrated Flask APIs for image inference and results delivery.
+
+Projects
+- Industrial Safety Detection: trained detection models for unsafe equipment usage.
+- Video Analytics Prototype: built a streaming dashboard with OpenCV and Flask.
+
+Technical Skills
+Python, Machine Learning, Deep Learning, OpenCV, YOLO, PyTorch, NumPy, Flask, REST API, Git

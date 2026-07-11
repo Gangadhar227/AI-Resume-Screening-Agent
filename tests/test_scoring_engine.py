@@ -77,9 +77,23 @@ def test_partial_skill_match() -> None:
 def test_extract_job_requirements() -> None:
     requirements = extract_job_requirements("We need Python, NLP, and 3 years of experience. Education: B.Tech or M.Tech.")
     assert "Python" in requirements["required_skills"]
-    assert "NLP" in requirements["required_skills"]
+    assert "Natural Language Processing" in requirements["required_skills"]
     assert requirements["required_experience"] == 3.0
-    assert "B.Tech" in requirements["required_education"] or "M.Tech" in requirements["required_education"]
+    assert requirements["required_education"] == ["Bachelor", "Master"]
+
+
+@pytest.mark.parametrize(
+    ("text", "expected"),
+    [
+        ("0–2 years", 0.0),
+        ("1–3 years", 1.0),
+        ("minimum 2 years", 2.0),
+        ("2+ years", 2.0),
+    ],
+)
+def test_extract_job_requirements_uses_minimum_range_value(text: str, expected: float) -> None:
+    requirements = extract_job_requirements(text)
+    assert requirements["required_experience"] == expected
 
 
 def test_experience_requirement_missing() -> None:

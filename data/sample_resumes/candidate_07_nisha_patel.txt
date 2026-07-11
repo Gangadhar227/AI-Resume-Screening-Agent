@@ -1,0 +1,21 @@
+Nisha Patel
+nisha.patel@example.com
+
+Professional Summary
+Software engineer with a foundation in Python, JavaScript, web development, and data handling. Interested in AI applications and hands-on prototyping.
+
+Education
+Bachelor of Engineering in Computer Science from Example University
+
+Experience
+Software Developer Intern, WebCraft Labs (2024)
+- Built frontend and backend features for internal web applications.
+- Worked with Python and REST APIs to support data exchange between services.
+- Collaborated with product teams on user-facing prototypes.
+
+Projects
+- Prototype Dashboard: developed interactive web interfaces and backend data endpoints.
+- Lightweight Analytics App: built a small data visualization experience for internal teams.
+
+Technical Skills
+Python, JavaScript, REST API, Git, Web Development, Data Handling

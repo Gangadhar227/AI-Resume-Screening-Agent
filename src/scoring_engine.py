@@ -6,7 +6,7 @@ import re
 from dataclasses import dataclass
 from typing import Any
 
-from src.information_extractor import SKILL_ALIASES, SKILL_ORDER
+from src.information_extractor import SKILL_ALIASES, SKILL_ORDER, canonicalize_education, canonicalize_skill, normalize_education, normalize_skills
 
 
 @dataclass(frozen=True)
@@ -99,38 +99,11 @@ def validate_weights(weights: ScoringWeights) -> None:
 
 
 def _normalize_skills(skills: list[str]) -> list[str]:
-    seen: set[str] = set()
-    ordered: list[str] = []
-    for skill in skills:
-        if not skill:
-            continue
-        canonical = _canonicalize_skill(skill)
-        if canonical and canonical not in seen:
-            seen.add(canonical)
-            ordered.append(canonical)
-    return ordered
+    return normalize_skills(skills)
 
 
 def _canonicalize_skill(skill: str) -> str:
-    if not skill:
-        return ""
-    cleaned = skill.strip()
-    if not cleaned:
-        return ""
-    lowered = cleaned.lower()
-    if lowered in SKILL_ALIASES:
-        canonical = SKILL_ALIASES[lowered]
-        if lowered in {"nlp", "ml", "rag", "llm", "llms", "genai", "k8s", "js"}:
-            return lowered.upper() if lowered in {"nlp", "ml", "llm", "llms", "genai", "k8s", "js"} else canonical
-        return canonical
-    for alias, canonical in SKILL_ALIASES.items():
-        if alias.lower() == lowered:
-            if alias in {"nlp", "ml", "rag", "llm", "llms", "genai", "k8s", "js"}:
-                return alias.upper() if alias in {"nlp", "ml", "llm", "llms", "genai", "k8s", "js"} else canonical
-            return canonical
-    if cleaned in SKILL_ORDER:
-        return cleaned
-    return cleaned
+    return canonicalize_skill(skill)
 
 
 def calculate_skill_match_score(required_skills: list[str], candidate_skills: list[str]) -> tuple[float, list[str], list[str], str | None]:
@@ -141,9 +114,9 @@ def calculate_skill_match_score(required_skills: list[str], candidate_skills: li
     if not normalized_required:
         return 50.0, [], [], "The JD did not provide enough identifiable technical-skill requirements for a meaningful skill-match score."
 
-    candidate_lookup = {item.lower() for item in normalized_candidate}
-    matched = [skill for skill in normalized_required if skill.lower() in candidate_lookup]
-    missing = [skill for skill in normalized_required if skill.lower() not in candidate_lookup]
+    candidate_lookup = {canonicalize_skill(item).lower() for item in normalized_candidate}
+    matched = [skill for skill in required_skills if canonicalize_skill(skill).lower() in candidate_lookup]
+    missing = [skill for skill in required_skills if canonicalize_skill(skill).lower() not in candidate_lookup]
 
     score = (len(matched) / len(normalized_required)) * 100.0 if normalized_required else 0.0
     return round(score, 2), matched, missing, None
@@ -160,22 +133,21 @@ def extract_job_requirements(job_description: str) -> dict[str, Any]:
     for alias, canonical in SKILL_ALIASES.items():
         if re.search(rf"(?<![A-Za-z0-9]){re.escape(alias.lower())}(?![A-Za-z0-9])", text.lower()):
             if alias in {"ml", "nlp", "rag", "llm", "llms", "genai", "k8s", "js", "c", "c++"}:
-                if alias not in required_skills:
-                    required_skills.append(alias.upper() if alias in {"ml", "nlp", "llm", "llms", "genai", "k8s", "js"} else alias)
+                if canonical not in required_skills:
+                    required_skills.append(canonical)
             elif canonical not in required_skills:
                 required_skills.append(canonical)
 
-    if "NLP" not in required_skills and "Natural Language Processing" in required_skills:
-        required_skills.remove("Natural Language Processing")
+    if "Natural Language Processing" in required_skills and "NLP" not in required_skills:
         required_skills.append("NLP")
-    if "ML" not in required_skills and "Machine Learning" in required_skills:
-        required_skills.remove("Machine Learning")
+    if "Machine Learning" in required_skills and "ML" not in required_skills:
         required_skills.append("ML")
 
     experience_patterns = [
         r"(?:minimum|at least|atleast|over|around|about)?\s*(\d+(?:\.\d+)?)\s*\+?\s*years?\s*(?:of\s+)?experience",
         r"(?:minimum|at least|atleast|over|around|about)?\s*(\d+(?:\.\d+)?)\s*\+?\s*years?",
         r"(\d+(?:\.\d+)?)\s*[–-]\s*(\d+(?:\.\d+)?)\s*years?\s*(?:of\s+)?experience",
+        r"(\d+(?:\.\d+)?)\s*[–-]\s*(\d+(?:\.\d+)?)\s*years?",
     ]
     required_experience: float | None = None
     for pattern in experience_patterns:
@@ -187,28 +159,40 @@ def extract_job_requirements(job_description: str) -> dict[str, Any]:
                 required_experience = float(match.group(1))
             break
 
+    range_match = re.search(r"(\d+(?:\.\d+)?)\s*[–-]\s*(\d+(?:\.\d+)?)\s*years?", text, flags=re.IGNORECASE)
+    if range_match:
+        required_experience = float(range_match.group(1))
+
     required_education: list[str] = []
     education_patterns = [
-        (r"\bB\.Tech\b", "B.Tech"),
-        (r"\bBachelor of Technology\b", "Bachelor of Technology"),
-        (r"\bB\.E\.?\b", "B.E"),
-        (r"\bBachelor of Engineering\b", "Bachelor of Engineering"),
-        (r"\bB\.Sc\b", "B.Sc"),
-        (r"\bBCA\b", "BCA"),
-        (r"\bMCA\b", "MCA"),
-        (r"\bM\.Tech\b", "M.Tech"),
-        (r"\bMaster of Technology\b", "Master of Technology"),
-        (r"\bM\.Sc\b", "M.Sc"),
-        (r"\bMBA\b", "MBA"),
-        (r"\bPhD\b", "PhD"),
+        r"\bBachelor(?:'s|’s)?\s+degree\b",
+        r"\bBachelor\s+degree\b",
+        r"\bB\.Tech\b",
+        r"\bBachelor of Technology\b",
+        r"\bB\.E\.?\b",
+        r"\bBachelor of Engineering\b",
+        r"\bB\.Sc\b",
+        r"\bBCA\b",
+        r"\bMCA\b",
+        r"\bMaster(?:'s|’s)?\s+degree\b",
+        r"\bMaster\s+degree\b",
+        r"\bM\.Tech\b",
+        r"\bMaster of Technology\b",
+        r"\bM\.Sc\b",
+        r"\bMBA\b",
+        r"\bPhD\b",
+        r"\bBachelor\b",
+        r"\bMaster\b",
     ]
-    for pattern, label in education_patterns:
-        if re.search(pattern, text, flags=re.IGNORECASE):
-            required_education.append(label)
+    if any(re.search(pattern, text, flags=re.IGNORECASE) for pattern in education_patterns):
+        if re.search(r"\bBachelor(?:'s|’s)?\s+degree\b|\bBachelor\s+degree\b|\bB\.Tech\b|\bBachelor of Technology\b|\bB\.E\.?\b|\bBachelor of Engineering\b|\bB\.Sc\b|\bBCA\b|\bMCA\b|\bBachelor\b", text, flags=re.IGNORECASE):
+            required_education.append("Bachelor")
+        if re.search(r"\bMaster(?:'s|’s)?\s+degree\b|\bMaster\s+degree\b|\bM\.Tech\b|\bMaster of Technology\b|\bM\.Sc\b|\bMBA\b|\bMaster\b", text, flags=re.IGNORECASE):
+            required_education.append("Master")
     return {
         "required_skills": _normalize_skills(required_skills),
         "required_experience": required_experience,
-        "required_education": required_education,
+        "required_education": normalize_education(required_education, prefer_degree_labels=True) if required_education else [],
     }
 
 
@@ -253,8 +237,8 @@ def calculate_candidate_score(
         education_match_score = 50.0
         education_note = "Candidate education is unknown; using a neutral score."
     else:
-        candidate_education_norm = [item.strip() for item in candidate_education if item and item.strip()]
-        required_education_norm = [item.strip() for item in required_education if item and item.strip()]
+        candidate_education_norm = [canonicalize_education(item, prefer_degree_labels=True) for item in candidate_education if item and item.strip()]
+        required_education_norm = [canonicalize_education(item, prefer_degree_labels=True) for item in required_education if item and item.strip()]
         if any(item in candidate_education_norm for item in required_education_norm):
             education_match_score = 100.0
             education_note = "Candidate education matches an identified requirement."

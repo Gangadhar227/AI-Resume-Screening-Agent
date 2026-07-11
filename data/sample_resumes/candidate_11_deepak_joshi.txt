@@ -1,0 +1,21 @@
+Deepak Joshi
+deepak.joshi@example.com
+
+Professional Summary
+Software engineer with strong Python skills and experience in data pipelines, ETL, and backend tasks. Comfortable supporting machine-learning projects with reliable engineering practices.
+
+Education
+Bachelor of Technology in Information Technology from Example Institute of Technology
+
+Experience
+Software Engineer Intern, DataFlow Systems (2024)
+- Built Python-based ETL pipelines for data preprocessing and transformation.
+- Supported ML teams with data validation and warehouse exports.
+- Used SQL and Git to maintain reproducible data workflows.
+
+Projects
+- Data Pipeline Toolkit: built robust ETL tasks for reliable data movement.
+- Internal Analytics Service: supported data preparation for reporting and model training.
+
+Technical Skills
+Python, SQL, ETL, Data Pipelines, Git, Backend Engineering

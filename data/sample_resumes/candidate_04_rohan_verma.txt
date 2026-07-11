@@ -1,0 +1,21 @@
+Rohan Verma
+rohan.verma@example.com
+
+Professional Summary
+Data-science enthusiast with experience in predictive modeling, preprocessing, analytics, and visualization using Python, pandas, NumPy, scikit-learn, SQL, and Git.
+
+Education
+Bachelor of Science in Data Science from Example College of Analytics
+
+Experience
+Data Science Intern, Insight Analytics (2023)
+- Cleaned and transformed datasets for predictive modeling.
+- Trained classification models using scikit-learn and evaluated performance.
+- Built dashboards and reporting outputs for business stakeholders.
+
+Projects
+- Churn Prediction: trained a machine-learning classifier using Python and scikit-learn.
+- Sales Forecasting: built feature engineering and visualization workflows for quarterly analysis.
+
+Technical Skills
+Python, Machine Learning, Pandas, NumPy, Scikit-learn, SQL, Git, Data Analysis

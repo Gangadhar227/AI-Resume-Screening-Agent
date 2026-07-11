@@ -1,0 +1,21 @@
+Kavya Nair
+kavya.nair@example.com
+
+Professional Summary
+Applied AI engineer building NLP and generative-AI applications using Python, LangChain, FAISS, vector databases, FastAPI, SQL, and Git. Strong interest in document understanding and question-answering systems.
+
+Education
+Master of Technology in Artificial Intelligence from Example Institute of Technology
+
+Experience
+AI Engineer Intern, Syntax Labs (2024)
+- Built document-question-answering systems using LangChain and large language models.
+- Designed retrieval pipelines with FAISS and vector databases.
+- Integrated FastAPI services for document ingestion and answer retrieval.
+
+Projects
+- Document QA Platform: used RAG workflows and vector search to answer domain-specific questions.
+- Customer Support Assistant: built prompt-driven workflows for support knowledge retrieval.
+
+Technical Skills
+Python, Natural Language Processing, Large Language Models, Retrieval-Augmented Generation, LangChain, Vector Database, FAISS, FastAPI, SQL, Git

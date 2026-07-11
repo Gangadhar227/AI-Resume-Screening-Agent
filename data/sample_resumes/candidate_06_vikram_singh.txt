@@ -1,0 +1,21 @@
+Vikram Singh
+vikram.singh@example.com
+
+Professional Summary
+Data-analyst with strong SQL and reporting experience. Comfortable preparing summaries, visualizations, dashboards, and trend analyses for business stakeholders.
+
+Education
+Bachelor of Commerce with analytics coursework from Example College
+
+Experience
+Reporting Analyst Intern, Insight Metrics (2023)
+- Built SQL-based reporting workflows for sales and operations metrics.
+- Prepared dashboards and recurring analysis summaries for stakeholders.
+- Worked with spreadsheets and visualization tools for weekly reporting.
+
+Projects
+- Customer Trend Reporting: consolidated monthly reporting data using SQL and dashboards.
+- Operations Summary: analyzed process metrics and delivered weekly summaries.
+
+Technical Skills
+SQL, Python, Pandas, Data Analysis, Reporting, Visualization

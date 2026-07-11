@@ -121,6 +121,30 @@ SKILL_ORDER: list[str] = [
     "Node.js",
 ]
 
+EDUCATION_ALIASES: dict[str, str] = {
+    "b.tech": "B.Tech",
+    "b.e": "B.Tech",
+    "b.e.": "B.Tech",
+    "bachelor of technology": "B.Tech",
+    "bachelor of engineering": "B.Tech",
+    "bachelor's degree": "Bachelor",
+    "bachelor’s degree": "Bachelor",
+    "bachelor degree": "Bachelor",
+    "bachelor": "Bachelor",
+    "m.tech": "M.Tech",
+    "master of technology": "M.Tech",
+    "master's degree": "Master",
+    "master’s degree": "Master",
+    "master degree": "Master",
+    "master": "Master",
+    "mca": "MCA",
+    "bca": "BCA",
+    "phd": "PhD",
+    "m.sc": "M.Sc",
+    "b.sc": "B.Sc",
+    "mba": "MBA",
+}
+
 EDUCATION_PATTERNS = [
     r"\bB\.Tech\b",
     r"\bBachelor of Technology\b",
@@ -134,7 +158,11 @@ EDUCATION_PATTERNS = [
     r"\bM\.Sc\b",
     r"\bMBA\b",
     r"\bPhD\b",
+    r"\bBachelor(?:'s|’s)?\s+degree\b",
+    r"\bBachelor\s+degree\b",
     r"\bBachelor\b",
+    r"\bMaster(?:'s|’s)?\s+degree\b",
+    r"\bMaster\s+degree\b",
     r"\bMaster\b",
 ]
 
@@ -182,9 +210,68 @@ def _extract_email(text: str) -> str | None:
     return match.group(0) if match else None
 
 
+def canonicalize_skill(skill: str) -> str:
+    if not skill:
+        return ""
+    cleaned = skill.strip()
+    if not cleaned:
+        return ""
+    lowered = cleaned.lower()
+    if lowered in SKILL_ALIASES:
+        return SKILL_ALIASES[lowered]
+    for alias, canonical in SKILL_ALIASES.items():
+        if alias.lower() == lowered:
+            return canonical
+    for canonical in SKILL_ORDER:
+        if canonical.lower() == lowered:
+            return canonical
+    return cleaned
+
+
+def normalize_skills(skills: list[str]) -> list[str]:
+    seen: set[str] = set()
+    ordered: list[str] = []
+    for skill in skills:
+        canonical = canonicalize_skill(skill)
+        if canonical and canonical not in seen:
+            seen.add(canonical)
+            ordered.append(canonical)
+    return ordered
+
+
+def canonicalize_education(qualification: str, prefer_degree_labels: bool = False) -> str:
+    if not qualification:
+        return ""
+    cleaned = qualification.strip()
+    if not cleaned:
+        return ""
+    lowered = cleaned.lower()
+    if lowered in EDUCATION_ALIASES:
+        canonical = EDUCATION_ALIASES[lowered]
+        if prefer_degree_labels and canonical in {"B.Tech", "M.Tech"}:
+            return "Bachelor" if canonical == "B.Tech" else "Master"
+        return canonical
+    for alias, canonical in EDUCATION_ALIASES.items():
+        if alias.lower() == lowered:
+            if prefer_degree_labels and canonical in {"B.Tech", "M.Tech"}:
+                return "Bachelor" if canonical == "B.Tech" else "Master"
+            return canonical
+    return cleaned
+
+
+def normalize_education(qualifications: list[str], prefer_degree_labels: bool = False) -> list[str]:
+    seen: set[str] = set()
+    ordered: list[str] = []
+    for qualification in qualifications:
+        canonical = canonicalize_education(qualification, prefer_degree_labels=prefer_degree_labels)
+        if canonical and canonical not in seen:
+            seen.add(canonical)
+            ordered.append(canonical)
+    return ordered
+
+
 def _extract_skills(text: str) -> list[str]:
     normalized_text = re.sub(r"[^A-Za-z0-9+.#()/-]+", " ", text)
-    words = normalized_text.split()
     found: set[str] = set()
 
     for item in SKILL_ORDER:
@@ -210,12 +297,19 @@ def _extract_skills(text: str) -> list[str]:
     for item in sorted(found):
         if item not in ordered:
             ordered.append(item)
-    return ordered
+    return normalize_skills(ordered)
 
 
 def _extract_education(text: str) -> list[str]:
     education_matches: list[str] = []
     seen: set[str] = set()
+    prefer_degree_labels = bool(
+        re.search(
+            r"\bBachelor(?:'s|’s)?\s+degree\b|\bBachelor\s+degree\b|\bBachelor\b|\bMaster(?:'s|’s)?\s+degree\b|\bMaster\s+degree\b|\bMaster\b",
+            text,
+            flags=re.IGNORECASE,
+        )
+    )
     for pattern in EDUCATION_PATTERNS:
         for match in re.finditer(pattern, text, flags=re.IGNORECASE):
             qualification = match.group(0)
@@ -233,26 +327,32 @@ def _extract_education(text: str) -> list[str]:
                 qualification = "Bachelor"
             elif qualification.lower() == "master":
                 qualification = "Master"
-            if qualification not in seen:
-                education_matches.append(qualification)
-                seen.add(qualification)
-    return education_matches
+            canonical = canonicalize_education(qualification, prefer_degree_labels=prefer_degree_labels)
+            if canonical and canonical not in seen:
+                education_matches.append(canonical)
+                seen.add(canonical)
+    return normalize_education(education_matches, prefer_degree_labels=prefer_degree_labels)
 
 
-def _extract_experience(text: str) -> float | None:
+def _extract_experience(text: str) -> tuple[float | None, str | None]:
     patterns = [
-        r"(?:over|about|around)?\s*(\d+(?:\.\d+)?)\s*\+?\s*years?\s*(?:of\s+)?experience",
-        r"(?:over|about|around)?\s*(\d+(?:\.\d+)?)\s*\+?\s*years?",
+        (r"(?<!\d)(\d+(?:\.\d+)?)\s*years?\s*(?:of\s+)?experience", False),
+        (r"(?<!\d)(\d+(?:\.\d+)?)\s*years?", False),
+        (r"(?<!\d)(\d+(?:\.\d+)?)\s*months?\s*(?:of\s+)?(?:internship\s+)?experience", True),
+        (r"(?<!\d)(\d+(?:\.\d+)?)\s*-\s*month(?:s)?\s+(?:internship|intern)", True),
+        (r"(?<!\d)(\d+(?:\.\d+)?)\s*month(?:s)?\s+(?:internship|intern)", True),
+        (r"(?<!\d)(\d+(?:\.\d+)?)\s*months?", True),
     ]
-    matches: list[float] = []
-    for pattern in patterns:
-        for match in re.finditer(pattern, text, flags=re.IGNORECASE):
+
+    for pattern, is_months in patterns:
+        match = re.search(pattern, text, flags=re.IGNORECASE)
+        if match:
             value = float(match.group(1))
-            matches.append(value)
-    if not matches:
-        return None
-    # Conservative rule: use the first explicit experience statement when multiple appear.
-    return matches[0]
+            if is_months:
+                return round(value / 12.0, 2), "Approximate internship duration used as relevant experience."
+            return value, None
+
+    return None, None
 
 
 def extract_candidate_information(text: str, filename: str | None = None) -> dict[str, Any]:
@@ -262,10 +362,12 @@ def extract_candidate_information(text: str, filename: str | None = None) -> dic
 
     normalized_text = text.replace("\r\n", "\n").replace("\r", "\n")
     collapsed_text = re.sub(r"\s+", " ", normalized_text).strip()
+    experience_years, experience_note = _extract_experience(collapsed_text)
     return {
         "name": _extract_name(normalized_text, filename=filename),
         "email": _extract_email(collapsed_text),
         "skills": _extract_skills(collapsed_text),
         "education": _extract_education(collapsed_text),
-        "experience_years": _extract_experience(collapsed_text),
+        "experience_years": experience_years,
+        "experience_note": experience_note,
     }

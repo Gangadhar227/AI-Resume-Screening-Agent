@@ -1,0 +1,21 @@
+Tanvi Sharma
+tanvi.sharma@example.com
+
+Professional Summary
+Recent graduate with experience in NLP and text analytics using Python, pandas, spaCy, scikit-learn, and SQL. Interested in building practical language applications and improving data quality.
+
+Education
+Bachelor of Technology in Computer Science from Example University
+
+Experience
+NLP Intern, LanguageWorks (2023-2024)
+- Processed and cleaned text datasets for sentiment and classification tasks.
+- Built text preprocessing pipelines with spaCy and pandas.
+- Evaluated simple NLP models with scikit-learn and SQL-based data joins.
+
+Projects
+- News Topic Classifier: trained a text-classification model with Python and scikit-learn.
+- Data Cleaning Toolkit: improved text normalization workflows for category labeling.
+
+Technical Skills
+Python, Natural Language Processing, NLP, Pandas, spaCy, Scikit-learn, SQL
