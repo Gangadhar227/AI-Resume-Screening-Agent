@@ -5,6 +5,13 @@ from __future__ import annotations
 from src.candidate_result import CandidateResult
 
 
+def capitalize_sentence(s: str) -> str:
+    """Capitalize only the first character of a string to preserve case in abbreviations."""
+    if not s:
+        return ""
+    return s[0].upper() + s[1:]
+
+
 def generate_explanation(candidate: CandidateResult) -> str:
     """Create a concise explanation from computed scoring components and actual values."""
     if candidate.final_score >= 80:
@@ -24,19 +31,19 @@ def generate_explanation(candidate: CandidateResult) -> str:
     gaps: list[str] = []
 
     if candidate.semantic_relevance_score >= 70:
-        strengths.append("strong semantic alignment with the job description")
+        strengths.append("shows strong semantic alignment with the job description")
     elif candidate.semantic_relevance_score >= 50:
-        strengths.append("moderate semantic alignment with the job description")
+        strengths.append("shows moderate semantic alignment with the job description")
 
     if candidate.matched_skills:
         if candidate.final_score >= 80:
-            strengths.append(f"matched {len(candidate.matched_skills)} of {len(candidate.matched_skills)} identifiable required skills")
+            strengths.append(f"matches {len(candidate.matched_skills)} of {len(candidate.matched_skills)} identifiable required skills")
         elif candidate.missing_skills:
             strengths.append(
-                f"matched {len(candidate.matched_skills)} of {len(candidate.matched_skills) + len(candidate.missing_skills)} identifiable required skills"
+                f"matches {len(candidate.matched_skills)} of {len(candidate.matched_skills) + len(candidate.missing_skills)} identifiable required skills"
             )
         else:
-            strengths.append("matched all identifiable required skills")
+            strengths.append("matches all identifiable required skills")
 
     if candidate.required_experience is not None and candidate.extracted_experience is not None:
         if candidate.extracted_experience >= candidate.required_experience:
@@ -60,17 +67,18 @@ def generate_explanation(candidate: CandidateResult) -> str:
 
     sentences: list[str] = []
     if strengths:
-        sentences.append(f"{candidate.candidate_name} shows {', '.join(strengths[0:2])} and has a final score of {candidate.final_score:.2f}.")
+        if len(strengths) == 1:
+            intro = f"{candidate.candidate_name} {strengths[0]} and has a final score of {candidate.final_score:.2f}."
+        elif len(strengths) == 2:
+            intro = f"{candidate.candidate_name} {strengths[0]}, {strengths[1]}, and has a final score of {candidate.final_score:.2f}."
+        else:
+            intro = f"{candidate.candidate_name} {', '.join(strengths[:-1])}, {strengths[-1]}, and has a final score of {candidate.final_score:.2f}."
+        sentences.append(intro)
     else:
         sentences.append(f"{candidate.candidate_name} provided limited information for a detailed assessment and has a final score of {candidate.final_score:.2f}.")
 
     for gap in gaps:
-        sentences.append(gap.capitalize() + ".")
-
-    if candidate.missing_skills:
-        sentence = f"Missing skills include {', '.join(candidate.missing_skills)}."
-        if sentence not in sentences:
-            sentences.append(sentence)
+        sentences.append(capitalize_sentence(gap) + ".")
 
     sentences.append(tail)
     return " ".join(sentences)

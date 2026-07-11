@@ -153,7 +153,8 @@ def _read_uploaded_resumes() -> list[Path]:
     for uploaded_file in uploaded_files:
         target_path = temp_dir / uploaded_file.name
         if target_path.exists():
-            target_path = temp_dir / f"{uploaded_file.name}_{len(saved_paths)}"
+            p = Path(uploaded_file.name)
+            target_path = temp_dir / f"{p.stem}_{len(saved_paths)}{p.suffix}"
         target_path.write_bytes(uploaded_file.getvalue())
         saved_paths.append(target_path)
     return saved_paths

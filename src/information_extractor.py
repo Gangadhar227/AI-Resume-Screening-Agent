@@ -131,12 +131,18 @@ EDUCATION_ALIASES: dict[str, str] = {
     "bachelor’s degree": "Bachelor",
     "bachelor degree": "Bachelor",
     "bachelor": "Bachelor",
+    "bs": "Bachelor",
+    "b.s.": "Bachelor",
+    "b.s": "Bachelor",
     "m.tech": "M.Tech",
     "master of technology": "M.Tech",
     "master's degree": "Master",
     "master’s degree": "Master",
     "master degree": "Master",
     "master": "Master",
+    "ms": "Master",
+    "m.s.": "Master",
+    "m.s": "Master",
     "mca": "MCA",
     "bca": "BCA",
     "phd": "PhD",
@@ -158,6 +164,12 @@ EDUCATION_PATTERNS = [
     r"\bM\.Sc\b",
     r"\bMBA\b",
     r"\bPhD\b",
+    r"\bBS\b",
+    r"\bB\.S\.\b",
+    r"\bB\.S\b",
+    r"\bMS\b",
+    r"\bM\.S\.\b",
+    r"\bM\.S\b",
     r"\bBachelor(?:'s|’s)?\s+degree\b",
     r"\bBachelor\s+degree\b",
     r"\bBachelor\b",
@@ -246,27 +258,50 @@ def canonicalize_education(qualification: str, prefer_degree_labels: bool = Fals
     if not cleaned:
         return ""
     lowered = cleaned.lower()
+    
+    canonical = cleaned
     if lowered in EDUCATION_ALIASES:
         canonical = EDUCATION_ALIASES[lowered]
-        if prefer_degree_labels and canonical in {"B.Tech", "M.Tech"}:
-            return "Bachelor" if canonical == "B.Tech" else "Master"
-        return canonical
-    for alias, canonical in EDUCATION_ALIASES.items():
-        if alias.lower() == lowered:
-            if prefer_degree_labels and canonical in {"B.Tech", "M.Tech"}:
-                return "Bachelor" if canonical == "B.Tech" else "Master"
-            return canonical
-    return cleaned
+    else:
+        for alias, can in EDUCATION_ALIASES.items():
+            if alias.lower() == lowered:
+                canonical = can
+                break
+                
+    if prefer_degree_labels:
+        if canonical in {"B.Tech", "B.E.", "B.Sc", "BCA", "BS", "Bachelor"}:
+            return "Bachelor"
+        if canonical in {"M.Tech", "M.Sc", "MBA", "MCA", "MS", "Master"}:
+            return "Master"
+            
+    return canonical
 
 
 def normalize_education(qualifications: list[str], prefer_degree_labels: bool = False) -> list[str]:
     seen: set[str] = set()
     ordered: list[str] = []
+    
+    canonical_list = []
     for qualification in qualifications:
         canonical = canonicalize_education(qualification, prefer_degree_labels=prefer_degree_labels)
-        if canonical and canonical not in seen:
+        if canonical and canonical not in canonical_list:
+            canonical_list.append(canonical)
+            
+    has_bachelor = "Bachelor" in canonical_list
+    has_master = "Master" in canonical_list
+    
+    bachelor_specific = {"B.Tech", "B.E.", "B.Sc", "BCA", "BS"}
+    master_specific = {"M.Tech", "M.Sc", "MBA", "MCA", "MS"}
+    
+    for canonical in canonical_list:
+        if has_bachelor and canonical in bachelor_specific:
+            continue
+        if has_master and canonical in master_specific:
+            continue
+        if canonical not in seen:
             seen.add(canonical)
             ordered.append(canonical)
+            
     return ordered
 
 
@@ -335,22 +370,26 @@ def _extract_education(text: str) -> list[str]:
 
 
 def _extract_experience(text: str) -> tuple[float | None, str | None]:
-    patterns = [
-        (r"(?<!\d)(\d+(?:\.\d+)?)\s*years?\s*(?:of\s+)?experience", False),
-        (r"(?<!\d)(\d+(?:\.\d+)?)\s*years?", False),
-        (r"(?<!\d)(\d+(?:\.\d+)?)\s*months?\s*(?:of\s+)?(?:internship\s+)?experience", True),
-        (r"(?<!\d)(\d+(?:\.\d+)?)\s*-\s*month(?:s)?\s+(?:internship|intern)", True),
-        (r"(?<!\d)(\d+(?:\.\d+)?)\s*month(?:s)?\s+(?:internship|intern)", True),
-        (r"(?<!\d)(\d+(?:\.\d+)?)\s*months?", True),
-    ]
+    # 1. Check for compound year and month pattern, e.g. "1 year and 6 months" or "2 years 3 months"
+    compound_pattern = r"(?<!\d)(\d+(?:\.\d+)?)\s*years?\s*(?:and\s*)?(\d+(?:\.\d+)?)\s*months?"
+    match = re.search(compound_pattern, text, flags=re.IGNORECASE)
+    if match:
+        years = float(match.group(1))
+        months = float(match.group(2))
+        return round(years + (months / 12.0), 2), None
 
-    for pattern, is_months in patterns:
-        match = re.search(pattern, text, flags=re.IGNORECASE)
-        if match:
-            value = float(match.group(1))
-            if is_months:
-                return round(value / 12.0, 2), "Approximate internship duration used as relevant experience."
-            return value, None
+    # 2. Check for years only, e.g. "2.5 years of experience", "3 years", etc.
+    years_pattern = r"(?<!\d)(\d+(?:\.\d+)?)\s*years?"
+    match = re.search(years_pattern, text, flags=re.IGNORECASE)
+    if match:
+        return float(match.group(1)), None
+
+    # 3. Check for months only (representing internships/short-term experience), e.g. "6-month internship", "6 months", "3-month"
+    months_pattern = r"(?<!\d)(\d+(?:\.\d+)?)\s*[-–—]?\s*months?"
+    match = re.search(months_pattern, text, flags=re.IGNORECASE)
+    if match:
+        months = float(match.group(1))
+        return round(months / 12.0, 2), "Approximate internship duration used as relevant experience."
 
     return None, None
 

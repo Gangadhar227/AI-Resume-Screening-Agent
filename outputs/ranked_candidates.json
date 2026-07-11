@@ -4,11 +4,11 @@
     "candidate_name": "Ananya Rao",
     "original_filename": "candidate_01_ananya_rao.txt",
     "email": "ananya.rao@example.com",
-    "final_score": 59.89,
+    "final_score": 63.64,
     "semantic_relevance_score": 70.97,
-    "skill_match_score": 48.0,
+    "skill_match_score": 52.17,
     "experience_match_score": 50.0,
-    "education_match_score": 50.0,
+    "education_match_score": 100.0,
     "matched_skills": [
       "Python",
       "Machine Learning",
@@ -34,9 +34,7 @@
       "AWS",
       "Azure",
       "GCP",
-      "Docker",
-      "ML",
-      "NLP"
+      "Docker"
     ],
     "extracted_skills": [
       "Python",
@@ -53,19 +51,25 @@
       "REST API"
     ],
     "extracted_experience": null,
-    "required_experience": 2.0,
+    "required_experience": 0.0,
     "extracted_education": [
-      "Bachelor of Technology",
       "Bachelor"
     ],
-    "required_education": [],
+    "required_education": [
+      "Bachelor"
+    ],
     "recommendation": "Moderate Match",
-    "strengths": [],
-    "gaps": [],
-    "explanation": "Ananya Rao received an overall score of 59.89. The resume shows strong semantic alignment with the job description. matches 12 of 25 identifiable required skills. Missing skills include Deep Learning, Computer Vision, Data Science, Large Language Models, TensorFlow, PyTorch, OpenCV, AWS, Azure, GCP, Docker, ML, NLP. experience information was not available missing skills include Deep Learning, Computer Vision, Data Science, Large Language Models, TensorFlow, PyTorch, OpenCV, AWS, Azure, GCP, Docker, ML, NLP. This result falls within the Moderate Match tier and is recommended for human shortlisting review.",
+    "strengths": [
+      "Strong semantic alignment",
+      "Matches the identified education requirement"
+    ],
+    "gaps": [
+      "Experience could not be identified"
+    ],
+    "explanation": "Ananya Rao shows strong semantic alignment with the job description, matches 12 of 23 identifiable required skills, matches the identified education requirement, and has a final score of 63.64. Experience could not be identified. Missing skills include Deep Learning, Computer Vision, Data Science, Large Language Models, TensorFlow, PyTorch, OpenCV, AWS, Azure, GCP, Docker. This result falls within the Moderate Match tier and requires human review.",
     "scoring_notes": [
       "Candidate experience is unknown; using a neutral score.",
-      "No identifiable education requirement found in the JD; using a neutral score."
+      "Candidate education matches an identified requirement."
     ]
   },
   {
@@ -73,11 +77,11 @@
     "candidate_name": "Priya Das",
     "original_filename": "candidate_08_priya_das.txt",
     "email": "priya.das@example.com",
-    "final_score": 53.62,
+    "final_score": 56.85,
     "semantic_relevance_score": 70.44,
-    "skill_match_score": 28.0,
+    "skill_match_score": 30.43,
     "experience_match_score": 50.0,
-    "education_match_score": 50.0,
+    "education_match_score": 100.0,
     "matched_skills": [
       "Python",
       "Machine Learning",
@@ -103,9 +107,7 @@
       "SQL",
       "Azure",
       "GCP",
-      "REST API",
-      "ML",
-      "NLP"
+      "REST API"
     ],
     "extracted_skills": [
       "Python",
@@ -117,19 +119,26 @@
       "Git"
     ],
     "extracted_experience": null,
-    "required_experience": 2.0,
+    "required_experience": 0.0,
     "extracted_education": [
-      "Bachelor of Technology",
       "Bachelor"
     ],
-    "required_education": [],
+    "required_education": [
+      "Bachelor"
+    ],
     "recommendation": "Moderate Match",
-    "strengths": [],
-    "gaps": [],
-    "explanation": "Priya Das received an overall score of 53.62. The resume shows strong semantic alignment with the job description. matches 7 of 25 identifiable required skills. Missing skills include Deep Learning, Natural Language Processing, Computer Vision, Data Science, Large Language Models, Retrieval-Augmented Generation, NumPy, TensorFlow, PyTorch, OpenCV, LangChain, Streamlit, SQL, Azure, GCP, REST API, ML, NLP. experience information was not available missing skills include Deep Learning, Natural Language Processing, Computer Vision, Data Science, Large Language Models, Retrieval-Augmented Generation, NumPy, TensorFlow, PyTorch, OpenCV, LangChain, Streamlit, SQL, Azure, GCP, REST API, ML, NLP. This result falls within the Moderate Match tier and is recommended for human shortlisting review.",
+    "strengths": [
+      "Strong semantic alignment",
+      "Matches the identified education requirement"
+    ],
+    "gaps": [
+      "Missing specific required skills",
+      "Experience could not be identified"
+    ],
+    "explanation": "Priya Das shows strong semantic alignment with the job description, matches 7 of 23 identifiable required skills, matches the identified education requirement, and has a final score of 56.85. Experience could not be identified. Missing skills include Deep Learning, Natural Language Processing, Computer Vision, Data Science, Large Language Models, Retrieval-Augmented Generation, NumPy, TensorFlow, PyTorch, OpenCV, LangChain, Streamlit, SQL, Azure, GCP, REST API. This result falls within the Moderate Match tier and requires human review.",
     "scoring_notes": [
       "Candidate experience is unknown; using a neutral score.",
-      "No identifiable education requirement found in the JD; using a neutral score."
+      "Candidate education matches an identified requirement."
     ]
   },
   {
@@ -137,11 +146,11 @@
     "candidate_name": "Arjun Mehta",
     "original_filename": "candidate_02_arjun_mehta.txt",
     "email": "arjun.mehta@example.com",
-    "final_score": 51.47,
+    "final_score": 54.91,
     "semantic_relevance_score": 61.34,
-    "skill_match_score": 36.0,
+    "skill_match_score": 39.13,
     "experience_match_score": 50.0,
-    "education_match_score": 50.0,
+    "education_match_score": 100.0,
     "matched_skills": [
       "Python",
       "Machine Learning",
@@ -167,9 +176,7 @@
       "AWS",
       "Azure",
       "GCP",
-      "Docker",
-      "ML",
-      "NLP"
+      "Docker"
     ],
     "extracted_skills": [
       "Python",
@@ -185,19 +192,26 @@
       "REST API"
     ],
     "extracted_experience": null,
-    "required_experience": 2.0,
+    "required_experience": 0.0,
     "extracted_education": [
-      "Bachelor of Engineering",
       "Bachelor"
     ],
-    "required_education": [],
+    "required_education": [
+      "Bachelor"
+    ],
     "recommendation": "Moderate Match",
-    "strengths": [],
-    "gaps": [],
-    "explanation": "Arjun Mehta received an overall score of 51.47. The resume shows moderate semantic alignment with the job description. matches 9 of 25 identifiable required skills. Missing skills include Natural Language Processing, Data Science, Large Language Models, Retrieval-Augmented Generation, Pandas, Scikit-learn, TensorFlow, LangChain, Streamlit, SQL, AWS, Azure, GCP, Docker, ML, NLP. experience information was not available missing skills include Natural Language Processing, Data Science, Large Language Models, Retrieval-Augmented Generation, Pandas, Scikit-learn, TensorFlow, LangChain, Streamlit, SQL, AWS, Azure, GCP, Docker, ML, NLP. This result falls within the Moderate Match tier and is recommended for human shortlisting review.",
+    "strengths": [
+      "Moderate semantic alignment",
+      "Matches the identified education requirement"
+    ],
+    "gaps": [
+      "Missing specific required skills",
+      "Experience could not be identified"
+    ],
+    "explanation": "Arjun Mehta shows moderate semantic alignment with the job description, matches 9 of 23 identifiable required skills, matches the identified education requirement, and has a final score of 54.91. Experience could not be identified. Missing skills include Natural Language Processing, Data Science, Large Language Models, Retrieval-Augmented Generation, Pandas, Scikit-learn, TensorFlow, LangChain, Streamlit, SQL, AWS, Azure, GCP, Docker. This result falls within the Moderate Match tier and requires human review.",
     "scoring_notes": [
       "Candidate experience is unknown; using a neutral score.",
-      "No identifiable education requirement found in the JD; using a neutral score."
+      "Candidate education matches an identified requirement."
     ]
   },
   {
@@ -205,11 +219,11 @@
     "candidate_name": "Rohan Verma",
     "original_filename": "candidate_04_rohan_verma.txt",
     "email": "rohan.verma@example.com",
-    "final_score": 50.54,
+    "final_score": 53.88,
     "semantic_relevance_score": 61.88,
-    "skill_match_score": 32.0,
+    "skill_match_score": 34.78,
     "experience_match_score": 50.0,
-    "education_match_score": 50.0,
+    "education_match_score": 100.0,
     "matched_skills": [
       "Python",
       "Machine Learning",
@@ -235,9 +249,7 @@
       "Azure",
       "GCP",
       "Docker",
-      "REST API",
-      "ML",
-      "NLP"
+      "REST API"
     ],
     "extracted_skills": [
       "Python",
@@ -250,30 +262,237 @@
       "Git"
     ],
     "extracted_experience": null,
-    "required_experience": 2.0,
+    "required_experience": 0.0,
     "extracted_education": [
       "Bachelor"
     ],
-    "required_education": [],
+    "required_education": [
+      "Bachelor"
+    ],
     "recommendation": "Moderate Match",
-    "strengths": [],
-    "gaps": [],
-    "explanation": "Rohan Verma received an overall score of 50.54. The resume shows moderate semantic alignment with the job description. matches 8 of 25 identifiable required skills. Missing skills include Deep Learning, Natural Language Processing, Computer Vision, Large Language Models, Retrieval-Augmented Generation, TensorFlow, PyTorch, OpenCV, LangChain, Streamlit, AWS, Azure, GCP, Docker, REST API, ML, NLP. experience information was not available missing skills include Deep Learning, Natural Language Processing, Computer Vision, Large Language Models, Retrieval-Augmented Generation, TensorFlow, PyTorch, OpenCV, LangChain, Streamlit, AWS, Azure, GCP, Docker, REST API, ML, NLP. This result falls within the Moderate Match tier and is recommended for human shortlisting review.",
+    "strengths": [
+      "Moderate semantic alignment",
+      "Matches the identified education requirement"
+    ],
+    "gaps": [
+      "Missing specific required skills",
+      "Experience could not be identified"
+    ],
+    "explanation": "Rohan Verma shows moderate semantic alignment with the job description, matches 8 of 23 identifiable required skills, matches the identified education requirement, and has a final score of 53.88. Experience could not be identified. Missing skills include Deep Learning, Natural Language Processing, Computer Vision, Large Language Models, Retrieval-Augmented Generation, TensorFlow, PyTorch, OpenCV, LangChain, Streamlit, AWS, Azure, GCP, Docker, REST API. This result falls within the Moderate Match tier and requires human review.",
     "scoring_notes": [
       "Candidate experience is unknown; using a neutral score.",
-      "No identifiable education requirement found in the JD; using a neutral score."
+      "Candidate education matches an identified requirement."
     ]
   },
   {
     "rank": 5,
+    "candidate_name": "Nisha Patel",
+    "original_filename": "candidate_07_nisha_patel.txt",
+    "email": "nisha.patel@example.com",
+    "final_score": 51.9,
+    "semantic_relevance_score": 70.97,
+    "skill_match_score": 13.04,
+    "experience_match_score": 50.0,
+    "education_match_score": 100.0,
+    "matched_skills": [
+      "Python",
+      "Git",
+      "REST API"
+    ],
+    "missing_skills": [
+      "Machine Learning",
+      "Deep Learning",
+      "Natural Language Processing",
+      "Computer Vision",
+      "Data Science",
+      "Large Language Models",
+      "Retrieval-Augmented Generation",
+      "Pandas",
+      "NumPy",
+      "Scikit-learn",
+      "TensorFlow",
+      "PyTorch",
+      "OpenCV",
+      "LangChain",
+      "Streamlit",
+      "SQL",
+      "AWS",
+      "Azure",
+      "GCP",
+      "Docker"
+    ],
+    "extracted_skills": [
+      "Python",
+      "JavaScript",
+      "Git",
+      "REST API"
+    ],
+    "extracted_experience": null,
+    "required_experience": 0.0,
+    "extracted_education": [
+      "Bachelor"
+    ],
+    "required_education": [
+      "Bachelor"
+    ],
+    "recommendation": "Moderate Match",
+    "strengths": [
+      "Strong semantic alignment",
+      "Matches the identified education requirement"
+    ],
+    "gaps": [
+      "Missing specific required skills",
+      "Experience could not be identified"
+    ],
+    "explanation": "Nisha Patel shows strong semantic alignment with the job description, matches 3 of 23 identifiable required skills, matches the identified education requirement, and has a final score of 51.90. Experience could not be identified. Missing skills include Machine Learning, Deep Learning, Natural Language Processing, Computer Vision, Data Science, Large Language Models, Retrieval-Augmented Generation, Pandas, NumPy, Scikit-learn, TensorFlow, PyTorch, OpenCV, LangChain, Streamlit, SQL, AWS, Azure, GCP, Docker. This result falls within the Moderate Match tier and requires human review.",
+    "scoring_notes": [
+      "Candidate experience is unknown; using a neutral score.",
+      "Candidate education matches an identified requirement."
+    ]
+  },
+  {
+    "rank": 6,
+    "candidate_name": "Deepak Joshi",
+    "original_filename": "candidate_11_deepak_joshi.txt",
+    "email": "deepak.joshi@example.com",
+    "final_score": 51.4,
+    "semantic_relevance_score": 67.37,
+    "skill_match_score": 17.39,
+    "experience_match_score": 50.0,
+    "education_match_score": 100.0,
+    "matched_skills": [
+      "Python",
+      "Machine Learning",
+      "SQL",
+      "Git"
+    ],
+    "missing_skills": [
+      "Deep Learning",
+      "Natural Language Processing",
+      "Computer Vision",
+      "Data Science",
+      "Large Language Models",
+      "Retrieval-Augmented Generation",
+      "Pandas",
+      "NumPy",
+      "Scikit-learn",
+      "TensorFlow",
+      "PyTorch",
+      "OpenCV",
+      "LangChain",
+      "Streamlit",
+      "AWS",
+      "Azure",
+      "GCP",
+      "Docker",
+      "REST API"
+    ],
+    "extracted_skills": [
+      "Python",
+      "Machine Learning",
+      "SQL",
+      "Git"
+    ],
+    "extracted_experience": null,
+    "required_experience": 0.0,
+    "extracted_education": [
+      "Bachelor"
+    ],
+    "required_education": [
+      "Bachelor"
+    ],
+    "recommendation": "Moderate Match",
+    "strengths": [
+      "Moderate semantic alignment",
+      "Matches the identified education requirement"
+    ],
+    "gaps": [
+      "Missing specific required skills",
+      "Experience could not be identified"
+    ],
+    "explanation": "Deepak Joshi shows moderate semantic alignment with the job description, matches 4 of 23 identifiable required skills, matches the identified education requirement, and has a final score of 51.40. Experience could not be identified. Missing skills include Deep Learning, Natural Language Processing, Computer Vision, Data Science, Large Language Models, Retrieval-Augmented Generation, Pandas, NumPy, Scikit-learn, TensorFlow, PyTorch, OpenCV, LangChain, Streamlit, AWS, Azure, GCP, Docker, REST API. This result falls within the Moderate Match tier and requires human review.",
+    "scoring_notes": [
+      "Candidate experience is unknown; using a neutral score.",
+      "Candidate education matches an identified requirement."
+    ]
+  },
+  {
+    "rank": 7,
+    "candidate_name": "Sanjay Kumar",
+    "original_filename": "candidate_09_sanjay_kumar.txt",
+    "email": "sanjay.kumar@example.com",
+    "final_score": 50.51,
+    "semantic_relevance_score": 62.97,
+    "skill_match_score": 21.74,
+    "experience_match_score": 50.0,
+    "education_match_score": 100.0,
+    "matched_skills": [
+      "Python",
+      "Machine Learning",
+      "Scikit-learn",
+      "SQL",
+      "Git"
+    ],
+    "missing_skills": [
+      "Deep Learning",
+      "Natural Language Processing",
+      "Computer Vision",
+      "Data Science",
+      "Large Language Models",
+      "Retrieval-Augmented Generation",
+      "Pandas",
+      "NumPy",
+      "TensorFlow",
+      "PyTorch",
+      "OpenCV",
+      "LangChain",
+      "Streamlit",
+      "AWS",
+      "Azure",
+      "GCP",
+      "Docker",
+      "REST API"
+    ],
+    "extracted_skills": [
+      "Python",
+      "Machine Learning",
+      "Scikit-learn",
+      "SQL",
+      "Git"
+    ],
+    "extracted_experience": null,
+    "required_experience": 0.0,
+    "extracted_education": [
+      "Bachelor"
+    ],
+    "required_education": [
+      "Bachelor"
+    ],
+    "recommendation": "Moderate Match",
+    "strengths": [
+      "Moderate semantic alignment",
+      "Matches the identified education requirement"
+    ],
+    "gaps": [
+      "Missing specific required skills",
+      "Experience could not be identified"
+    ],
+    "explanation": "Sanjay Kumar shows moderate semantic alignment with the job description, matches 5 of 23 identifiable required skills, matches the identified education requirement, and has a final score of 50.51. Experience could not be identified. Missing skills include Deep Learning, Natural Language Processing, Computer Vision, Data Science, Large Language Models, Retrieval-Augmented Generation, Pandas, NumPy, TensorFlow, PyTorch, OpenCV, LangChain, Streamlit, AWS, Azure, GCP, Docker, REST API. This result falls within the Moderate Match tier and requires human review.",
+    "scoring_notes": [
+      "Candidate experience is unknown; using a neutral score.",
+      "Candidate education matches an identified requirement."
+    ]
+  },
+  {
+    "rank": 8,
     "candidate_name": "Kavya Nair",
     "original_filename": "candidate_03_kavya_nair.txt",
     "email": "kavya.nair@example.com",
-    "final_score": 49.25,
+    "final_score": 47.48,
     "semantic_relevance_score": 61.71,
-    "skill_match_score": 28.0,
+    "skill_match_score": 30.43,
     "experience_match_score": 50.0,
-    "education_match_score": 50.0,
+    "education_match_score": 0.0,
     "matched_skills": [
       "Python",
       "Natural Language Processing",
@@ -299,9 +518,7 @@
       "Azure",
       "GCP",
       "Docker",
-      "REST API",
-      "ML",
-      "NLP"
+      "REST API"
     ],
     "extracted_skills": [
       "Python",
@@ -316,279 +533,38 @@
       "Git"
     ],
     "extracted_experience": null,
-    "required_experience": 2.0,
+    "required_experience": 0.0,
     "extracted_education": [
-      "Master of Technology",
       "Master"
     ],
-    "required_education": [],
-    "recommendation": "Low Match",
-    "strengths": [],
-    "gaps": [],
-    "explanation": "Kavya Nair received an overall score of 49.25. The resume shows moderate semantic alignment with the job description. matches 7 of 25 identifiable required skills. Missing skills include Machine Learning, Deep Learning, Computer Vision, Data Science, Pandas, NumPy, Scikit-learn, TensorFlow, PyTorch, OpenCV, Streamlit, AWS, Azure, GCP, Docker, REST API, ML, NLP. experience information was not available missing skills include Machine Learning, Deep Learning, Computer Vision, Data Science, Pandas, NumPy, Scikit-learn, TensorFlow, PyTorch, OpenCV, Streamlit, AWS, Azure, GCP, Docker, REST API, ML, NLP. This result falls within the Low Match tier and is recommended for human shortlisting review.",
-    "scoring_notes": [
-      "Candidate experience is unknown; using a neutral score.",
-      "No identifiable education requirement found in the JD; using a neutral score."
-    ]
-  },
-  {
-    "rank": 6,
-    "candidate_name": "Nisha Patel",
-    "original_filename": "candidate_07_nisha_patel.txt",
-    "email": "nisha.patel@example.com",
-    "final_score": 49.08,
-    "semantic_relevance_score": 70.97,
-    "skill_match_score": 12.0,
-    "experience_match_score": 50.0,
-    "education_match_score": 50.0,
-    "matched_skills": [
-      "Python",
-      "Git",
-      "REST API"
-    ],
-    "missing_skills": [
-      "Machine Learning",
-      "Deep Learning",
-      "Natural Language Processing",
-      "Computer Vision",
-      "Data Science",
-      "Large Language Models",
-      "Retrieval-Augmented Generation",
-      "Pandas",
-      "NumPy",
-      "Scikit-learn",
-      "TensorFlow",
-      "PyTorch",
-      "OpenCV",
-      "LangChain",
-      "Streamlit",
-      "SQL",
-      "AWS",
-      "Azure",
-      "GCP",
-      "Docker",
-      "ML",
-      "NLP"
-    ],
-    "extracted_skills": [
-      "Python",
-      "JavaScript",
-      "Git",
-      "REST API"
-    ],
-    "extracted_experience": null,
-    "required_experience": 2.0,
-    "extracted_education": [
-      "Bachelor of Engineering",
+    "required_education": [
       "Bachelor"
     ],
-    "required_education": [],
     "recommendation": "Low Match",
-    "strengths": [],
-    "gaps": [],
-    "explanation": "Nisha Patel received an overall score of 49.08. The resume shows strong semantic alignment with the job description. matches 3 of 25 identifiable required skills. Missing skills include Machine Learning, Deep Learning, Natural Language Processing, Computer Vision, Data Science, Large Language Models, Retrieval-Augmented Generation, Pandas, NumPy, Scikit-learn, TensorFlow, PyTorch, OpenCV, LangChain, Streamlit, SQL, AWS, Azure, GCP, Docker, ML, NLP. experience information was not available missing skills include Machine Learning, Deep Learning, Natural Language Processing, Computer Vision, Data Science, Large Language Models, Retrieval-Augmented Generation, Pandas, NumPy, Scikit-learn, TensorFlow, PyTorch, OpenCV, LangChain, Streamlit, SQL, AWS, Azure, GCP, Docker, ML, NLP. This result falls within the Low Match tier and is recommended for human shortlisting review.",
+    "strengths": [
+      "Moderate semantic alignment"
+    ],
+    "gaps": [
+      "Missing specific required skills",
+      "Experience could not be identified",
+      "Education requirement could not be confirmed"
+    ],
+    "explanation": "Kavya Nair shows moderate semantic alignment with the job description, matches 7 of 23 identifiable required skills, and has a final score of 47.48. Experience could not be identified. Education requirement could not be confirmed. Missing skills include Machine Learning, Deep Learning, Computer Vision, Data Science, Pandas, NumPy, Scikit-learn, TensorFlow, PyTorch, OpenCV, Streamlit, AWS, Azure, GCP, Docker, REST API. This result falls within the Low Match tier. A recruiter should review the complete resume before making any decision.",
     "scoring_notes": [
       "Candidate experience is unknown; using a neutral score.",
-      "No identifiable education requirement found in the JD; using a neutral score."
-    ]
-  },
-  {
-    "rank": 7,
-    "candidate_name": "Deepak Joshi",
-    "original_filename": "candidate_11_deepak_joshi.txt",
-    "email": "deepak.joshi@example.com",
-    "final_score": 48.48,
-    "semantic_relevance_score": 67.37,
-    "skill_match_score": 16.0,
-    "experience_match_score": 50.0,
-    "education_match_score": 50.0,
-    "matched_skills": [
-      "Python",
-      "Machine Learning",
-      "SQL",
-      "Git"
-    ],
-    "missing_skills": [
-      "Deep Learning",
-      "Natural Language Processing",
-      "Computer Vision",
-      "Data Science",
-      "Large Language Models",
-      "Retrieval-Augmented Generation",
-      "Pandas",
-      "NumPy",
-      "Scikit-learn",
-      "TensorFlow",
-      "PyTorch",
-      "OpenCV",
-      "LangChain",
-      "Streamlit",
-      "AWS",
-      "Azure",
-      "GCP",
-      "Docker",
-      "REST API",
-      "ML",
-      "NLP"
-    ],
-    "extracted_skills": [
-      "Python",
-      "Machine Learning",
-      "SQL",
-      "Git"
-    ],
-    "extracted_experience": null,
-    "required_experience": 2.0,
-    "extracted_education": [
-      "Bachelor of Technology",
-      "Bachelor"
-    ],
-    "required_education": [],
-    "recommendation": "Low Match",
-    "strengths": [],
-    "gaps": [],
-    "explanation": "Deepak Joshi received an overall score of 48.48. The resume shows moderate semantic alignment with the job description. matches 4 of 25 identifiable required skills. Missing skills include Deep Learning, Natural Language Processing, Computer Vision, Data Science, Large Language Models, Retrieval-Augmented Generation, Pandas, NumPy, Scikit-learn, TensorFlow, PyTorch, OpenCV, LangChain, Streamlit, AWS, Azure, GCP, Docker, REST API, ML, NLP. experience information was not available missing skills include Deep Learning, Natural Language Processing, Computer Vision, Data Science, Large Language Models, Retrieval-Augmented Generation, Pandas, NumPy, Scikit-learn, TensorFlow, PyTorch, OpenCV, LangChain, Streamlit, AWS, Azure, GCP, Docker, REST API, ML, NLP. This result falls within the Low Match tier and is recommended for human shortlisting review.",
-    "scoring_notes": [
-      "Candidate experience is unknown; using a neutral score.",
-      "No identifiable education requirement found in the JD; using a neutral score."
-    ]
-  },
-  {
-    "rank": 8,
-    "candidate_name": "Sanjay Kumar",
-    "original_filename": "candidate_09_sanjay_kumar.txt",
-    "email": "sanjay.kumar@example.com",
-    "final_score": 47.49,
-    "semantic_relevance_score": 62.97,
-    "skill_match_score": 20.0,
-    "experience_match_score": 50.0,
-    "education_match_score": 50.0,
-    "matched_skills": [
-      "Python",
-      "Machine Learning",
-      "Scikit-learn",
-      "SQL",
-      "Git"
-    ],
-    "missing_skills": [
-      "Deep Learning",
-      "Natural Language Processing",
-      "Computer Vision",
-      "Data Science",
-      "Large Language Models",
-      "Retrieval-Augmented Generation",
-      "Pandas",
-      "NumPy",
-      "TensorFlow",
-      "PyTorch",
-      "OpenCV",
-      "LangChain",
-      "Streamlit",
-      "AWS",
-      "Azure",
-      "GCP",
-      "Docker",
-      "REST API",
-      "ML",
-      "NLP"
-    ],
-    "extracted_skills": [
-      "Python",
-      "Machine Learning",
-      "Scikit-learn",
-      "SQL",
-      "Git"
-    ],
-    "extracted_experience": null,
-    "required_experience": 2.0,
-    "extracted_education": [
-      "Bachelor of Technology",
-      "Bachelor"
-    ],
-    "required_education": [],
-    "recommendation": "Low Match",
-    "strengths": [],
-    "gaps": [],
-    "explanation": "Sanjay Kumar received an overall score of 47.49. The resume shows moderate semantic alignment with the job description. matches 5 of 25 identifiable required skills. Missing skills include Deep Learning, Natural Language Processing, Computer Vision, Data Science, Large Language Models, Retrieval-Augmented Generation, Pandas, NumPy, TensorFlow, PyTorch, OpenCV, LangChain, Streamlit, AWS, Azure, GCP, Docker, REST API, ML, NLP. experience information was not available missing skills include Deep Learning, Natural Language Processing, Computer Vision, Data Science, Large Language Models, Retrieval-Augmented Generation, Pandas, NumPy, TensorFlow, PyTorch, OpenCV, LangChain, Streamlit, AWS, Azure, GCP, Docker, REST API, ML, NLP. This result falls within the Low Match tier and is recommended for human shortlisting review.",
-    "scoring_notes": [
-      "Candidate experience is unknown; using a neutral score.",
-      "No identifiable education requirement found in the JD; using a neutral score."
+      "Candidate education does not match the identified requirement."
     ]
   },
   {
     "rank": 9,
-    "candidate_name": "Isha Bhatia",
-    "original_filename": "candidate_12_isha_bhatia.txt",
-    "email": "isha.bhatia@example.com",
-    "final_score": 45.78,
-    "semantic_relevance_score": 52.36,
-    "skill_match_score": 32.0,
-    "experience_match_score": 50.0,
-    "education_match_score": 50.0,
-    "matched_skills": [
-      "Python",
-      "Machine Learning",
-      "Natural Language Processing",
-      "Data Science",
-      "Pandas",
-      "Scikit-learn",
-      "SQL",
-      "Git"
-    ],
-    "missing_skills": [
-      "Deep Learning",
-      "Computer Vision",
-      "Large Language Models",
-      "Retrieval-Augmented Generation",
-      "NumPy",
-      "TensorFlow",
-      "PyTorch",
-      "OpenCV",
-      "LangChain",
-      "Streamlit",
-      "AWS",
-      "Azure",
-      "GCP",
-      "Docker",
-      "REST API",
-      "ML",
-      "NLP"
-    ],
-    "extracted_skills": [
-      "Python",
-      "Machine Learning",
-      "Natural Language Processing",
-      "Data Science",
-      "Pandas",
-      "Scikit-learn",
-      "SQL",
-      "Git"
-    ],
-    "extracted_experience": null,
-    "required_experience": 2.0,
-    "extracted_education": [
-      "Master"
-    ],
-    "required_education": [],
-    "recommendation": "Low Match",
-    "strengths": [],
-    "gaps": [],
-    "explanation": "Isha Bhatia received an overall score of 45.78. The resume shows moderate semantic alignment with the job description. matches 8 of 25 identifiable required skills. Missing skills include Deep Learning, Computer Vision, Large Language Models, Retrieval-Augmented Generation, NumPy, TensorFlow, PyTorch, OpenCV, LangChain, Streamlit, AWS, Azure, GCP, Docker, REST API, ML, NLP. experience information was not available missing skills include Deep Learning, Computer Vision, Large Language Models, Retrieval-Augmented Generation, NumPy, TensorFlow, PyTorch, OpenCV, LangChain, Streamlit, AWS, Azure, GCP, Docker, REST API, ML, NLP. This result falls within the Low Match tier and is recommended for human shortlisting review.",
-    "scoring_notes": [
-      "Candidate experience is unknown; using a neutral score.",
-      "No identifiable education requirement found in the JD; using a neutral score."
-    ]
-  },
-  {
-    "rank": 10,
     "candidate_name": "Tanvi Sharma",
     "original_filename": "candidate_10_tanvi_sharma.txt",
     "email": "tanvi.sharma@example.com",
-    "final_score": 43.54,
+    "final_score": 46.56,
     "semantic_relevance_score": 55.08,
-    "skill_match_score": 20.0,
+    "skill_match_score": 21.74,
     "experience_match_score": 50.0,
-    "education_match_score": 50.0,
+    "education_match_score": 100.0,
     "matched_skills": [
       "Python",
       "Natural Language Processing",
@@ -614,9 +590,7 @@
       "GCP",
       "Docker",
       "Git",
-      "REST API",
-      "ML",
-      "NLP"
+      "REST API"
     ],
     "extracted_skills": [
       "Python",
@@ -626,19 +600,96 @@
       "SQL"
     ],
     "extracted_experience": null,
-    "required_experience": 2.0,
+    "required_experience": 0.0,
     "extracted_education": [
-      "Bachelor of Technology",
       "Bachelor"
     ],
-    "required_education": [],
+    "required_education": [
+      "Bachelor"
+    ],
     "recommendation": "Low Match",
-    "strengths": [],
-    "gaps": [],
-    "explanation": "Tanvi Sharma received an overall score of 43.54. The resume shows moderate semantic alignment with the job description. matches 5 of 25 identifiable required skills. Missing skills include Machine Learning, Deep Learning, Computer Vision, Data Science, Large Language Models, Retrieval-Augmented Generation, NumPy, TensorFlow, PyTorch, OpenCV, LangChain, Streamlit, AWS, Azure, GCP, Docker, Git, REST API, ML, NLP. experience information was not available missing skills include Machine Learning, Deep Learning, Computer Vision, Data Science, Large Language Models, Retrieval-Augmented Generation, NumPy, TensorFlow, PyTorch, OpenCV, LangChain, Streamlit, AWS, Azure, GCP, Docker, Git, REST API, ML, NLP. This result falls within the Low Match tier and is recommended for human shortlisting review.",
+    "strengths": [
+      "Moderate semantic alignment",
+      "Matches the identified education requirement"
+    ],
+    "gaps": [
+      "Missing specific required skills",
+      "Experience could not be identified"
+    ],
+    "explanation": "Tanvi Sharma shows moderate semantic alignment with the job description, matches 5 of 23 identifiable required skills, matches the identified education requirement, and has a final score of 46.56. Experience could not be identified. Missing skills include Machine Learning, Deep Learning, Computer Vision, Data Science, Large Language Models, Retrieval-Augmented Generation, NumPy, TensorFlow, PyTorch, OpenCV, LangChain, Streamlit, AWS, Azure, GCP, Docker, Git, REST API. This result falls within the Low Match tier. A recruiter should review the complete resume before making any decision.",
     "scoring_notes": [
       "Candidate experience is unknown; using a neutral score.",
-      "No identifiable education requirement found in the JD; using a neutral score."
+      "Candidate education matches an identified requirement."
+    ]
+  },
+  {
+    "rank": 10,
+    "candidate_name": "Isha Bhatia",
+    "original_filename": "candidate_12_isha_bhatia.txt",
+    "email": "isha.bhatia@example.com",
+    "final_score": 44.11,
+    "semantic_relevance_score": 52.36,
+    "skill_match_score": 34.78,
+    "experience_match_score": 50.0,
+    "education_match_score": 0.0,
+    "matched_skills": [
+      "Python",
+      "Machine Learning",
+      "Natural Language Processing",
+      "Data Science",
+      "Pandas",
+      "Scikit-learn",
+      "SQL",
+      "Git"
+    ],
+    "missing_skills": [
+      "Deep Learning",
+      "Computer Vision",
+      "Large Language Models",
+      "Retrieval-Augmented Generation",
+      "NumPy",
+      "TensorFlow",
+      "PyTorch",
+      "OpenCV",
+      "LangChain",
+      "Streamlit",
+      "AWS",
+      "Azure",
+      "GCP",
+      "Docker",
+      "REST API"
+    ],
+    "extracted_skills": [
+      "Python",
+      "Machine Learning",
+      "Natural Language Processing",
+      "Data Science",
+      "Pandas",
+      "Scikit-learn",
+      "SQL",
+      "Git"
+    ],
+    "extracted_experience": null,
+    "required_experience": 0.0,
+    "extracted_education": [
+      "Master"
+    ],
+    "required_education": [
+      "Bachelor"
+    ],
+    "recommendation": "Low Match",
+    "strengths": [
+      "Moderate semantic alignment"
+    ],
+    "gaps": [
+      "Missing specific required skills",
+      "Experience could not be identified",
+      "Education requirement could not be confirmed"
+    ],
+    "explanation": "Isha Bhatia shows moderate semantic alignment with the job description, matches 8 of 23 identifiable required skills, and has a final score of 44.11. Experience could not be identified. Education requirement could not be confirmed. Missing skills include Deep Learning, Computer Vision, Large Language Models, Retrieval-Augmented Generation, NumPy, TensorFlow, PyTorch, OpenCV, LangChain, Streamlit, AWS, Azure, GCP, Docker, REST API. This result falls within the Low Match tier. A recruiter should review the complete resume before making any decision.",
+    "scoring_notes": [
+      "Candidate experience is unknown; using a neutral score.",
+      "Candidate education does not match the identified requirement."
     ]
   },
   {
@@ -646,11 +697,11 @@
     "candidate_name": "Meera Iyer",
     "original_filename": "candidate_05_meera_iyer.txt",
     "email": "meera.iyer@example.com",
-    "final_score": 39.09,
+    "final_score": 42.11,
     "semantic_relevance_score": 46.18,
-    "skill_match_score": 20.0,
+    "skill_match_score": 21.74,
     "experience_match_score": 50.0,
-    "education_match_score": 50.0,
+    "education_match_score": 100.0,
     "matched_skills": [
       "Python",
       "SQL",
@@ -676,9 +727,7 @@
       "Streamlit",
       "AWS",
       "Azure",
-      "GCP",
-      "ML",
-      "NLP"
+      "GCP"
     ],
     "extracted_skills": [
       "Python",
@@ -692,19 +741,25 @@
       "REST API"
     ],
     "extracted_experience": null,
-    "required_experience": 2.0,
+    "required_experience": 0.0,
     "extracted_education": [
-      "Bachelor of Technology",
       "Bachelor"
     ],
-    "required_education": [],
+    "required_education": [
+      "Bachelor"
+    ],
     "recommendation": "Low Match",
-    "strengths": [],
-    "gaps": [],
-    "explanation": "Meera Iyer received an overall score of 39.09. The resume shows matches 5 of 25 identifiable required skills. Missing skills include Machine Learning, Deep Learning, Natural Language Processing, Computer Vision, Data Science, Large Language Models, Retrieval-Augmented Generation, Pandas, NumPy, Scikit-learn, TensorFlow, PyTorch, OpenCV, LangChain, Streamlit, AWS, Azure, GCP, ML, NLP. experience information was not available missing skills include Machine Learning, Deep Learning, Natural Language Processing, Computer Vision, Data Science, Large Language Models, Retrieval-Augmented Generation, Pandas, NumPy, Scikit-learn, TensorFlow, PyTorch, OpenCV, LangChain, Streamlit, AWS, Azure, GCP, ML, NLP. This result falls within the Low Match tier and is recommended for human shortlisting review.",
+    "strengths": [
+      "Matches the identified education requirement"
+    ],
+    "gaps": [
+      "Missing specific required skills",
+      "Experience could not be identified"
+    ],
+    "explanation": "Meera Iyer matches 5 of 23 identifiable required skills, matches the identified education requirement, and has a final score of 42.11. Experience could not be identified. Missing skills include Machine Learning, Deep Learning, Natural Language Processing, Computer Vision, Data Science, Large Language Models, Retrieval-Augmented Generation, Pandas, NumPy, Scikit-learn, TensorFlow, PyTorch, OpenCV, LangChain, Streamlit, AWS, Azure, GCP. This result falls within the Low Match tier. A recruiter should review the complete resume before making any decision.",
     "scoring_notes": [
       "Candidate experience is unknown; using a neutral score.",
-      "No identifiable education requirement found in the JD; using a neutral score."
+      "Candidate education matches an identified requirement."
     ]
   },
   {
@@ -712,11 +767,11 @@
     "candidate_name": "Vikram Singh",
     "original_filename": "candidate_06_vikram_singh.txt",
     "email": "vikram.singh@example.com",
-    "final_score": 32.25,
+    "final_score": 35.06,
     "semantic_relevance_score": 37.3,
-    "skill_match_score": 12.0,
+    "skill_match_score": 13.04,
     "experience_match_score": 50.0,
-    "education_match_score": 50.0,
+    "education_match_score": 100.0,
     "matched_skills": [
       "Python",
       "Pandas",
@@ -742,9 +797,7 @@
       "GCP",
       "Docker",
       "Git",
-      "REST API",
-      "ML",
-      "NLP"
+      "REST API"
     ],
     "extracted_skills": [
       "Python",
@@ -752,18 +805,25 @@
       "SQL"
     ],
     "extracted_experience": null,
-    "required_experience": 2.0,
+    "required_experience": 0.0,
     "extracted_education": [
       "Bachelor"
     ],
-    "required_education": [],
+    "required_education": [
+      "Bachelor"
+    ],
     "recommendation": "Low Match",
-    "strengths": [],
-    "gaps": [],
-    "explanation": "Vikram Singh received an overall score of 32.25. The resume shows matches 3 of 25 identifiable required skills. Missing skills include Machine Learning, Deep Learning, Natural Language Processing, Computer Vision, Data Science, Large Language Models, Retrieval-Augmented Generation, NumPy, Scikit-learn, TensorFlow, PyTorch, OpenCV, LangChain, Streamlit, AWS, Azure, GCP, Docker, Git, REST API, ML, NLP. experience information was not available missing skills include Machine Learning, Deep Learning, Natural Language Processing, Computer Vision, Data Science, Large Language Models, Retrieval-Augmented Generation, NumPy, Scikit-learn, TensorFlow, PyTorch, OpenCV, LangChain, Streamlit, AWS, Azure, GCP, Docker, Git, REST API, ML, NLP. This result falls within the Low Match tier and is recommended for human shortlisting review.",
+    "strengths": [
+      "Matches the identified education requirement"
+    ],
+    "gaps": [
+      "Missing specific required skills",
+      "Experience could not be identified"
+    ],
+    "explanation": "Vikram Singh matches 3 of 23 identifiable required skills, matches the identified education requirement, and has a final score of 35.06. Experience could not be identified. Missing skills include Machine Learning, Deep Learning, Natural Language Processing, Computer Vision, Data Science, Large Language Models, Retrieval-Augmented Generation, NumPy, Scikit-learn, TensorFlow, PyTorch, OpenCV, LangChain, Streamlit, AWS, Azure, GCP, Docker, Git, REST API. This result falls within the Low Match tier. A recruiter should review the complete resume before making any decision.",
     "scoring_notes": [
       "Candidate experience is unknown; using a neutral score.",
-      "No identifiable education requirement found in the JD; using a neutral score."
+      "Candidate education matches an identified requirement."
     ]
   }
 ]

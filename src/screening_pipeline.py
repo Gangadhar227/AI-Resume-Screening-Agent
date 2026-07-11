@@ -115,27 +115,24 @@ class ScreeningPipeline:
         elif candidate.semantic_relevance_score >= 50:
             candidate.strengths.append("Moderate semantic alignment")
 
-        if candidate.matched_skills and candidate.missing_skills:
+        if candidate.skill_match_score >= 75.0:
             candidate.strengths.append("High required-skill coverage")
-        elif candidate.matched_skills:
-            candidate.strengths.append("High required-skill coverage")
+        elif candidate.skill_match_score < 50.0 and candidate.missing_skills:
+            candidate.gaps.append("Missing specific required skills")
 
-        if candidate.required_experience is not None and candidate.extracted_experience is not None:
-            if candidate.extracted_experience >= candidate.required_experience:
+        if candidate.required_experience is not None:
+            if candidate.experience_match_score == 100.0:
                 candidate.strengths.append("Meets the stated experience requirement")
+            elif candidate.extracted_experience is None:
+                candidate.gaps.append("Experience could not be identified")
             else:
                 candidate.gaps.append("Experience below requirement")
-        elif candidate.required_experience is not None:
-            candidate.gaps.append("Experience could not be identified")
 
         if candidate.required_education:
-            if candidate.extracted_education and any(item in candidate.extracted_education for item in candidate.required_education):
+            if candidate.education_match_score == 100.0:
                 candidate.strengths.append("Matches the identified education requirement")
             else:
                 candidate.gaps.append("Education requirement could not be confirmed")
-
-        if candidate.missing_skills:
-            candidate.gaps.append("Missing specific required skills")
 
         candidate.explanation = generate_explanation(candidate)
         return candidate, None

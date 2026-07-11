@@ -46,7 +46,7 @@ def test_skill_match_calculation_is_case_insensitive() -> None:
     )
     assert score == 50.0
     assert matched == ["Python"]
-    assert missing == ["NLP"]
+    assert missing == ["Natural Language Processing"]
     assert note is None
 
 
@@ -70,7 +70,7 @@ def test_partial_skill_match() -> None:
     score, matched, missing, note = calculate_skill_match_score(required_skills=["Python", "SQL", "NLP"], candidate_skills=["Python"])
     assert score == 33.33
     assert matched == ["Python"]
-    assert missing == ["SQL", "NLP"]
+    assert missing == ["SQL", "Natural Language Processing"]
     assert note is None
 
 

@@ -1,0 +1,89 @@
+Gangadhar Jambagi
+
+gangadharjambagi7@gmail.com
+
+|
+
++91-7975537239
+
+|
+
+LinkedIn
+
+|
+
+GitHub
+
+SUMMARY
+
+Computer Science undergraduate graduated in 2026 with hands-on experience in Python application development, software
+design, and agile practices. Proficient in writing clean, maintainable, and efficient Python code, building REST APIs,
+and managing SQL backends. Strong foundation in object-oriented programming, software testing, version control, and
+collaborative debugging. Passionate about custom software engineering, problem-solving, and delivering scalable components
+tailored to business needs.
+
+EXPERIENCE
+Vstand4U Technologies
+2026 – Present
+Python Developer Intern | Bengaluru, India
+• Developed custom, scalable Python-based software applications to optimize business operations and data processing.
+• Designed and enhanced robust backend functionalities using Python, optimizing database components and SQL queries.
+• Built and integrated REST APIs while adhering to modern development frameworks and software development life cycles
+(SDLC).
+• Actively participated in system testing, problem-solving discussions, cross-functional debugging, and regular team code
+reviews.
+• Collaborated closely with colleagues within an Agile methodology framework to translate requirements into reliable
+software components.
+
+PROJECTS
+
+Real-Time PPE Detection & Monitoring System
+Technologies: Python, OpenCV, Flask, SQL, Git
+• Built a modular Python-based workplace safety monitoring system utilizing OpenCV and custom backend scripts.
+• Wrote clean, maintainable code to process image data streams, structured backend tracking tables, and managed version
+control via Git.
+• Developed a lightweight Flask-based web service and SQL framework for robust performance reporting and tracking.
+• Managed software verification through targeted component testing, validation logic, and systematic debugging phases.
+EduCertChain – Distributed Certificate Verification Platform
+Technologies: Python, Web3.js, Solidity, IPFS, SQL
+• Developed a secure, custom verification platform featuring structured Python workflows for digital certificate management.
+• Implemented system logic for verification workflows, data integrity checks, and custom component interactions.
+• Maintained comprehensive technical documentation, architecture notes, and software procedures to foster team collaboration.
+• Applied testing methodologies to ensure accurate component functionality, tracking traceability, and overall system
+quality.
+
+EDUCATION
+KLE Institute of Technology, Hubballi
+Bachelor of Engineering in Computer Science and Engineering
+CGPA: 7.7
+
+TECHNICAL SKILLS
+Languages
+Core CS
+Software Eng.
+Testing & Tools
+Libraries
+Databases
+Frameworks
+
+Python, Java
+Object-Oriented Programming (OOP), Data Structures, Algorithms
+Custom Software Development, Backend Design, SDLC, Agile Methodologies
+Software Testing, Debugging, Git, GitHub, Version Control, REST APIs
+NumPy, Pandas, OpenCV
+SQL, MySQL, Database Query Optimization
+Flask
+
+CERTIFICATIONS
+
+• Google AI Essentials
+• Deloitte Data Analytics Job Simulation
+
+ACHIEVEMENTS
+
+• Secured 6th Place in SynthHack 2025 (IEEE Hackathon) among 200+ participating teams.
+• Presented innovative software project designs at the Hubli-Dharwad Idea Conclave.
+
+2022 – 2026
+
+

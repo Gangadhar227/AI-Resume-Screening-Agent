@@ -115,8 +115,8 @@ def calculate_skill_match_score(required_skills: list[str], candidate_skills: li
         return 50.0, [], [], "The JD did not provide enough identifiable technical-skill requirements for a meaningful skill-match score."
 
     candidate_lookup = {canonicalize_skill(item).lower() for item in normalized_candidate}
-    matched = [skill for skill in required_skills if canonicalize_skill(skill).lower() in candidate_lookup]
-    missing = [skill for skill in required_skills if canonicalize_skill(skill).lower() not in candidate_lookup]
+    matched = [skill for skill in normalized_required if skill.lower() in candidate_lookup]
+    missing = [skill for skill in normalized_required if skill.lower() not in candidate_lookup]
 
     score = (len(matched) / len(normalized_required)) * 100.0 if normalized_required else 0.0
     return round(score, 2), matched, missing, None
@@ -132,63 +132,27 @@ def extract_job_requirements(job_description: str) -> dict[str, Any]:
 
     for alias, canonical in SKILL_ALIASES.items():
         if re.search(rf"(?<![A-Za-z0-9]){re.escape(alias.lower())}(?![A-Za-z0-9])", text.lower()):
-            if alias in {"ml", "nlp", "rag", "llm", "llms", "genai", "k8s", "js", "c", "c++"}:
-                if canonical not in required_skills:
-                    required_skills.append(canonical)
-            elif canonical not in required_skills:
+            if canonical not in required_skills:
                 required_skills.append(canonical)
 
-    if "Natural Language Processing" in required_skills and "NLP" not in required_skills:
-        required_skills.append("NLP")
-    if "Machine Learning" in required_skills and "ML" not in required_skills:
-        required_skills.append("ML")
-
-    experience_patterns = [
-        r"(?:minimum|at least|atleast|over|around|about)?\s*(\d+(?:\.\d+)?)\s*\+?\s*years?\s*(?:of\s+)?experience",
-        r"(?:minimum|at least|atleast|over|around|about)?\s*(\d+(?:\.\d+)?)\s*\+?\s*years?",
-        r"(\d+(?:\.\d+)?)\s*[–-]\s*(\d+(?:\.\d+)?)\s*years?\s*(?:of\s+)?experience",
-        r"(\d+(?:\.\d+)?)\s*[–-]\s*(\d+(?:\.\d+)?)\s*years?",
-    ]
     required_experience: float | None = None
-    for pattern in experience_patterns:
-        match = re.search(pattern, text, flags=re.IGNORECASE)
-        if match:
-            if len(match.groups()) == 2:
-                required_experience = float(match.group(1))
-            else:
-                required_experience = float(match.group(1))
-            break
-
-    range_match = re.search(r"(\d+(?:\.\d+)?)\s*[–-]\s*(\d+(?:\.\d+)?)\s*years?", text, flags=re.IGNORECASE)
+    # 1. Match range first to avoid matching the upper limit as a single year requirement
+    range_match = re.search(r"(\d+(?:\.\d+)?)\s*[-–—]\s*(\d+(?:\.\d+)?)\s*years?", text, flags=re.IGNORECASE)
     if range_match:
         required_experience = float(range_match.group(1))
+    else:
+        # 2. Match single year requirements
+        single_match = re.search(r"(?<!\d)(\d+(?:\.\d+)?)\s*(?:\+)?\s*years?", text, flags=re.IGNORECASE)
+        if single_match:
+            required_experience = float(single_match.group(1))
 
     required_education: list[str] = []
-    education_patterns = [
-        r"\bBachelor(?:'s|’s)?\s+degree\b",
-        r"\bBachelor\s+degree\b",
-        r"\bB\.Tech\b",
-        r"\bBachelor of Technology\b",
-        r"\bB\.E\.?\b",
-        r"\bBachelor of Engineering\b",
-        r"\bB\.Sc\b",
-        r"\bBCA\b",
-        r"\bMCA\b",
-        r"\bMaster(?:'s|’s)?\s+degree\b",
-        r"\bMaster\s+degree\b",
-        r"\bM\.Tech\b",
-        r"\bMaster of Technology\b",
-        r"\bM\.Sc\b",
-        r"\bMBA\b",
-        r"\bPhD\b",
-        r"\bBachelor\b",
-        r"\bMaster\b",
-    ]
-    if any(re.search(pattern, text, flags=re.IGNORECASE) for pattern in education_patterns):
-        if re.search(r"\bBachelor(?:'s|’s)?\s+degree\b|\bBachelor\s+degree\b|\bB\.Tech\b|\bBachelor of Technology\b|\bB\.E\.?\b|\bBachelor of Engineering\b|\bB\.Sc\b|\bBCA\b|\bMCA\b|\bBachelor\b", text, flags=re.IGNORECASE):
-            required_education.append("Bachelor")
-        if re.search(r"\bMaster(?:'s|’s)?\s+degree\b|\bMaster\s+degree\b|\bM\.Tech\b|\bMaster of Technology\b|\bM\.Sc\b|\bMBA\b|\bMaster\b", text, flags=re.IGNORECASE):
-            required_education.append("Master")
+    # Search for Bachelor's and Master's requirements from natural wording and abbreviations
+    if re.search(r"\bBachelor(?:'s|’s)?(?:\s+degree)?\b|\bB\.Tech\b|\bBachelor of Technology\b|\bB\.E\.?\b|\bBachelor of Engineering\b|\bB\.Sc\b|\bBCA\b|\bBS\b|\bB\.S\b", text, flags=re.IGNORECASE):
+        required_education.append("Bachelor")
+    if re.search(r"\bMaster(?:'s|’s)?(?:\s+degree)?\b|\bM\.Tech\b|\bMaster of Technology\b|\bM\.Sc\b|\bMBA\b|\bMCA\b|\bMS\b|\bM\.S\b", text, flags=re.IGNORECASE):
+        required_education.append("Master")
+
     return {
         "required_skills": _normalize_skills(required_skills),
         "required_experience": required_experience,

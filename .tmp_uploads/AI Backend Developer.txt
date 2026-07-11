@@ -1,0 +1,91 @@
+AI Backend Developer
+RIBU is a leading visual content and creative production company powering brands worldwide with high
+volume, high quality creatives at speed and scale. With expertise across premium photography, postproduction, CGI, GCC, content automation, and AI-driven solutions, RIBU delivers integrated creative
+ecosystems tailored for modern commerce. Backed by a growing global footprint, RIBU partners with
+brands to move seamlessly from brief to deployment, faster, smarter, and at scale.
+Job Overview: Do you thrive in a dynamic environment, want to be part of a small core team, and love
+owning what you build end-to-end? We are looking for Backend Engineers who can build scalable
+distributed systems, AI-powered platforms, search capabilities, and high-performance media workflows.
+Key Responsibilities:
+
+
+
+
+
+
+
+
+
+Build and maintain secure, scalable backend services using Python, PostgreSQL, and AWS
+serverles technologies (Lambda, API Gateway, SQS, SNS, etc.)
+Design and develop reliable REST APIs for workflow, AI, search, and media management
+platforms
+Build AI-native backend capabilities including agent orchestration, workflow automation, humanin-the-loop processes, and AI service integrations
+Design and implement search capabilities including metadata search, full-text search, and
+semantic retrieval
+Build services for high-volume image and video movement across cloud and on-premise
+environments
+Develop integrations with storage systems, DAM platforms, file transfer services, and third-party
+applications
+Improve performance, scalability, reliability, security, and observability across backend systems
+Work closely with Product, Frontend, DevOps, AI/ML, and QA teams to deliver new capabilities
+Contribute to architecture decisions, engineering standards, and mentor junior developers.
+
+Note: This job description outlines the primary duties and responsibilities associated with this position,
+but additional tasks may be assigned as needed to support the organization's goals and objectives.
+Qualifications and Skills:
+
+
+
+
+
+
+
+
+
+
+3–8 years of backend development experience, preferably building SaaS products.
+Strong expertise in Python and modern backend frameworks such as Flask or FastAPI
+Strong proficiency in PostgreSQL or similar relational databases, including schema design and
+query optimization.
+Experience designing scalable REST APIs and distributed systems
+Hands-on experience with AWS serverless services and event-driven architectures
+Strong foundation in OOP, system design, data structures, and algorithms
+Experience building AI-enabled applications, integrating LLMs, AI services, or agentic workflows
+Experience with search technologies such as OpenSearch, Elasticsearch, PostgreSQL full text
+Search, or vector search platforms
+Experience building backend services for image, video, or digital asset workflows
+Familiarity with file transfer protocols and technologies including FTP, SFTP, multipart uploads,
+cloud object storage, and hybrid cloud/on-prem architectures
+Strong ownership mindset with the ability to work independently in a fast-paced environment.
+
+Why Join Us
+
+
+
+
+Work on a greenfield AI SaaS product , redefining creative workflows for fashion and ecommerce
+Work alongside technology leaders who have built 0-to-1 AI SaaS products
+Be part of the core early team—your work directly shapes the product
+
+
+
+
+
+
+Build with a modern tech stack and solve real, complex engineering problems
+Fast-paced, ownership-driven culture with room to grow
+Onsite role in Bengaluru—collaborate closely and move fast
+Be part of RIBU’s 1000+ strong worldwide team that has powered creative expression for leading
+global brands for over 25 years
+
+Compensation:
+The company is poised to be the industry leader in its various verticals. This position is one of major
+importance and the compensation will be in consideration of the incumbent’s ability to showcase their
+ability to manage the responsibilities.
+Contact:
+Interested candidates kindly send your updated CV to jobs@ribuworld.com with email subject line as
+“AI Backend Developer” .
+Location: Bangalore. www.ribuworld.com
+
+
